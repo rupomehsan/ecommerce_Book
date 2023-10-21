@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('product_id')->nullable();
             $table->string('image', 100)->nullable();
-         
-           $table->tinyInteger('creator')->nullable();
-            $table->string('slug',50)->nullable();
-            $table->enum('status',['active','inactive'])->default('active');
+
+            $table->tinyInteger('creator')->nullable();
+            $table->string('slug', 50)->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

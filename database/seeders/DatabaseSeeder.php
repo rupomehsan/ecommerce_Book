@@ -7,7 +7,9 @@ namespace Database\Seeders;
 use Database\Seeders\order\OrderPaymentSeeder;
 use Database\Seeders\order\OrderProductSeeder;
 use Database\Seeders\order\OrderSeeder;
+use Database\Seeders\Product\ProductCategoryProductSeeder;
 use Database\Seeders\Product\ProductCategorySeeder;
+use Database\Seeders\Product\ProductImageSeeder;
 use Database\Seeders\Product\ProductOfferSeeder;
 use Database\Seeders\Product\ProductReviewSeeder;
 use Database\Seeders\Product\ProductSeeder;
@@ -37,14 +39,18 @@ class DatabaseSeeder extends Seeder
             UserRoleSeeder::class,
 
             ProductCategorySeeder::class,
+            ProductCategoryProductSeeder::class,
             ProductSeeder::class,
+            ProductSpecificationSeeder::class,
+            ProductImageSeeder::class,
+
             ProductTagSeeder::class,
             ProductStockSeeder::class,
             ProductStockLogSeeder::class,
+
             ProductOfferSeeder::class,
             ProductReviewSeeder::class,
-            ProductSpecificationSeeder::class,
-            
+
             OrderSeeder::class,
             OrderProductSeeder::class,
             OrderPaymentSeeder::class,

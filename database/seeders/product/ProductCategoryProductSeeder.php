@@ -4,6 +4,7 @@ namespace Database\Seeders\Product;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProductCategoryProductSeeder extends Seeder
 {
@@ -12,6 +13,9 @@ class ProductCategoryProductSeeder extends Seeder
      */
     public function run(): void
     {
-     
+        DB::table('product_category_product')->insert([
+            'product_id' => 1,
+            'product_category_id' => 1,
+        ]);
     }
 }

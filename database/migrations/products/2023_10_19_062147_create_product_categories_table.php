@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100)->nullable();
-            $table->bigInteger('parent')->nullable();
-            $table->string('url', 100)->nullable();
+            $table->string('title', 100)->unique()->nullable();
+            $table->bigInteger('parent')->default(0);
+            $table->string('url', 100)->unique();
             $table->string('image', 100)->nullable();
             $table->string('meta_title', 100)->nullable();
             $table->text('meta_information')->nullable();
@@ -31,7 +31,7 @@ return new class extends Migration
         Schema::create('product_category_product', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('product_id')->nullable();
-            $table->bigInteger('category_id')->nullable();
+            $table->bigInteger('product_category_id')->nullable();
             
             $table->timestamps();
         });

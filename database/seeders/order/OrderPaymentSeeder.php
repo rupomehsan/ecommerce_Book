@@ -5,7 +5,7 @@ namespace Database\Seeders\order;
 use App\Models\orders\OrderPayment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Str;
 class OrderPaymentSeeder extends Seeder
 {
     /**
@@ -17,9 +17,9 @@ class OrderPaymentSeeder extends Seeder
         OrderPayment::create([
             'user_id' => '1',
             'order_id' => '1',
-            'payment_method' => 'bekash',
+            'payment_method' => 'bkash',
             'payment_number' => '01721232322',
-            'trx_id' => '123',
+            'trx_id' =>  Str::random(10),
             'amount' => '500',
 
         ]);
@@ -28,9 +28,9 @@ class OrderPaymentSeeder extends Seeder
         OrderPayment::create([
             'user_id' => '2',
             'order_id' => '2',
-            'payment_method' => 'bekash',
+            'payment_method' => 'bkash',
             'payment_number' => '01721231122',
-            'trx_id' => '123',
+            'trx_id' => Str::random(10),
             'amount' => '400',
 
         ]);
@@ -39,9 +39,9 @@ class OrderPaymentSeeder extends Seeder
         OrderPayment::create([
             'user_id' => '3',
             'order_id' => '3',
-            'payment_method' => 'bekash',
+            'payment_method' => 'bkash',
             'payment_number' => '01721231144',
-            'trx_id' => '123',
+            'trx_id' =>  Str::random(10),
             'amount' => '300',
 
         ]);

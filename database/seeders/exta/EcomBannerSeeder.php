@@ -17,7 +17,7 @@ class EcomBannerSeeder extends Seeder
         EcomBanner::create([
             'title' => '1',
             'redirect_url' => '1',
-            'image' => 'bekash',
+            'image' => '',
 
         ]);
     }

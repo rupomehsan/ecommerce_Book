@@ -16,13 +16,11 @@ class ProductImageSeeder extends Seeder
         ProductImage::truncate();
 
 
-        for($i=1; $i<=16; $i++ ){
+        for($i=1; $i <= 16; $i++){
             ProductImage::create([
                 'product_id' => $i,
                 'image' => 'assets/backend/product/'.$i.'.jpg',
-    
             ]);    
-          
         }
         
     }

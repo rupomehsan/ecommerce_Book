@@ -5,6 +5,7 @@ namespace Database\Seeders\Product;
 use App\Models\products\ProductTag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ProductTagSeeder extends Seeder
 {
@@ -17,9 +18,9 @@ class ProductTagSeeder extends Seeder
         ProductTag::create([
             'title'=>'literature',
             //  'parent'=>'',
-            'url'=>'https://www.rokomari.com/book?ref=nm',
+            'url'=> Str::slug('literature'),
             'image'=>'',
-            'slug' => 'https://www.rokomari.com/book?ref=nm',
+            'slug' =>  Str::slug('literature'),
             'meta_title'=>'literature',
             'meta_information'=>'',
             'meta_keywords'=>''
@@ -28,9 +29,9 @@ class ProductTagSeeder extends Seeder
         ProductTag::create([
             'title'=>'Novel',
             //  'parent'=>'',
-            'url'=>'https://www.rokomari.com/book?ref=nm',
+            'url'=> Str::slug('Novel'),
             'image'=>'',
-            'slug' => 'https://www.rokomari.com/book?ref=nm',
+            'slug' =>  Str::slug('Novel'),
             'meta_title'=>'novel',
             'meta_information'=>'',
             'meta_keywords'=>''
@@ -39,9 +40,9 @@ class ProductTagSeeder extends Seeder
         ProductTag::create([
             'title'=>'Fiction',
             //  'parent'=>'',
-            'url'=>'https://www.rokomari.com/book?ref=nm',
+            'url'=> Str::slug('Fiction'),
             'image'=>'',
-            'slug' => 'https://www.rokomari.com/book?ref=nm',
+            'slug' => Str::slug('Fiction'),
             'meta_title'=>'fiction',
             'meta_information'=>'',
             'meta_keywords'=>''
@@ -50,9 +51,9 @@ class ProductTagSeeder extends Seeder
         ProductTag::create([
             'title'=>'Science',
             //  'parent'=>'',
-            'url'=>'https://www.rokomari.com/book?ref=nm',
+            'url'=>Str::slug('Science'),
             'image'=>'',
-            'slug' => 'https://www.rokomari.com/book?ref=nm',
+            'slug' => Str::slug('Science'),
             'meta_title'=>'science',
             'meta_information'=>'',
             'meta_keywords'=>''
@@ -61,9 +62,9 @@ class ProductTagSeeder extends Seeder
         ProductTag::create([
             'title'=>'Politics',
             //  'parent'=>'',
-            'url'=>'https://www.rokomari.com/book?ref=nm',
+            'url'=>Str::slug('Politics'),
             'image'=>'',
-            'slug' => 'https://www.rokomari.com/book?ref=nm',
+            'slug' => Str::slug('Politics'),
             'meta_title'=>'politics',
             'meta_information'=>'',
             'meta_keywords'=>''

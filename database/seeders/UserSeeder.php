@@ -15,20 +15,21 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::truncate();
-        User::create([
-        'first_name'=>'super',
-        'last_name' => 'admin',
-        'user_name' => 'super admin',
-        'telegram_id' => '812239513',
-        // 'role_id' => 1,
-        'mobile_number' => '016123',
-        'email' => 'superadmin@gmail.com',
-        'password' => Hash::make('12345678'),
+        $user = User::create([
+            'first_name' => 'super',
+            'last_name' => 'admin',
+            'user_name' => 'super admin',
+            'telegram_id' => '812239513',
+            // 'role_id' => 1,
+            'mobile_number' => '016123',
+            'email' => 'superadmin@gmail.com',
+            'password' => Hash::make('12345678'),
         ]);
 
+        $user->roles()->attach([1]);
 
-        User::create([
-            'first_name'=>'super',
+        $user = User::create([
+            'first_name' => 'super',
             'last_name' => 'user',
             'user_name' => 'super user',
             'telegram_id' => '812239113',
@@ -36,7 +37,8 @@ class UserSeeder extends Seeder
             'mobile_number' => '016132',
             'email' => 'user@gmail.com',
             'password' => Hash::make('12345678'),
-            ]);
-     
+        ]);
+
+        $user->roles()->attach([2]);
     }
 }
