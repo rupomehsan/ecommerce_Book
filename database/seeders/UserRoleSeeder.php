@@ -16,11 +16,11 @@ class UserRoleSeeder extends Seeder
         UserRole::truncate();
         UserRole::create([
             'title' => 'admin',
-            'serial' => 1,
+            'role_serial' => 1,
         ]);
         UserRole::create([
             'title' => 'user',
-            'serial' => 2,
+            'role_serial' => 2,
         ]);
     }
 }

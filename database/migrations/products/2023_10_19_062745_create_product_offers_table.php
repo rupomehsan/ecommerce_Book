@@ -16,10 +16,9 @@ return new class extends Migration
             $table->bigInteger('product_id')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
-            $table->float('end_date')->nullable();
             $table->float('main_price')->nullable();
             $table->float('discount_percent')->nullable();
-            $table->float('discount_amount')->nullable();
+            $table->float('discount_price')->nullable();
             
 
             $table->tinyInteger('creator')->nullable();

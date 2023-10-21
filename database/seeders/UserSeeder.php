@@ -16,20 +16,27 @@ class UserSeeder extends Seeder
     {
         User::truncate();
         User::create([
-            'full_name' => 'tarikul islam',
-            'role_id'=> 1,
-            'email' => 'tarikulmd519@gmail.com',
-            'phone_number'=>'01713252133',
-            'image' =>'',
-            'password' => Hash::make('12345678'),
+        'first_name'=>'super',
+        'last_name' => 'admin',
+        'user_name' => 'super admin',
+        'telegram_id' => '812239513',
+        // 'role_id' => 1,
+        'mobile_number' => '016123',
+        'email' => 'superadmin@gmail.com',
+        'password' => Hash::make('12345678'),
         ]);
+
+
         User::create([
-            'full_name' => 'sharif islam',
-            'role_id'=> 2,
-            'email' => 'sharifmd519@gmail.com',
-            'phone_number'=>'01714252133',
-            'image' =>'',
+            'first_name'=>'super',
+            'last_name' => 'user',
+            'user_name' => 'super user',
+            'telegram_id' => '812239113',
+            // 'role_id' => 2,
+            'mobile_number' => '016132',
+            'email' => 'user@gmail.com',
             'password' => Hash::make('12345678'),
-        ]);
+            ]);
+     
     }
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigInteger('user_id')->nullable();
             $table->text('review_details')->nullable();
             $table->tinyInteger('star')->nullable();
-            $table->tinyInteger('approve')->nullable();
+            $table->tinyInteger('approve')->default('0');
          
             $table->tinyInteger('creator')->nullable();
             $table->string('slug',50)->nullable();

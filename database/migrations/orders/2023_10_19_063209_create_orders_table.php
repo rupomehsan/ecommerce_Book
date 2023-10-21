@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->float('discount_percent')->nullable();
             $table->float('discount_price')->nullable();
-            $table->enum('payment_status',['pending','paid','failed'])->default();
+            $table->enum('payment_status',['pending','paid','failed'])->default('pending');
             $table->string('delivery_method', 100)->nullable();
             $table->float('delivery_cost')->nullable();
 

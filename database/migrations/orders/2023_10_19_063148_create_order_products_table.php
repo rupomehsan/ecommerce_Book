@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('product_id')->nullable();
             $table->bigInteger('order_id')->nullable();
             $table->float('product_price')->nullable();
-            $table->float('discount_amount')->nullable();
+            $table->float('discount_percent')->nullable();
             $table->float('discount_price')->nullable();
             $table->integer('qty')->nullable();
             

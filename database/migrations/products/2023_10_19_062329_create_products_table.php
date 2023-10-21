@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name', 100)->nullable();
-            $table->string('product_url', 100)->nullable();
+            $table->string('product_name', 200)->nullable();
+            $table->string('product_url', 200)->nullable();
             $table->enum('is_top_product',['1','0'])->default('1');
             $table->text('selected_categories')->nullable();
             $table->text('short_description')->nullable();
