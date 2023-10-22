@@ -16,15 +16,14 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-
         if (Auth::check()) {
-
-            if (Auth::user()->role_id == '1') {
-                return $next($request);
-            } else {
+            $check_role = Auth::user()->load('roles')->roles()->where('role_serial',1)->first();
+            if($check_role){
+                return $next($request); 
+            }else {
                 return redirect('/');
             }
+           
         } else {
             return redirect('/login');
         }

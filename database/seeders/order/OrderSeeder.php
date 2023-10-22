@@ -17,46 +17,46 @@ class OrderSeeder extends Seeder
         Order::create([
             'user_id' => '1',
             'order_status' => 'pending',
-            'total_price' => '300',
-            'sub_total' => '250',
+            'total_price' => '1960',
+            'sub_total' => '3400',
             'invoice_id' => '123adc',
             'date' => '2023-10-23 20:59:00',
-            'discount_percent' => '10',
-            'discount_price' => '270',
+            'discount_percent' => '53',
+            'discount_price' => '1840',
             'payment_status' => 'paid',
             'delivery_method' => 'home',
-            'delivery_cost' => '30',
+            'delivery_cost' => '120',
 
-        ]);
+        ]); 
 
 
         Order::create([
             'user_id' => '2',
             'order_status' => 'pending',
-            'total_price' => '400',
-            'sub_total' => '300',
+            'total_price' => '2135',
+            'sub_total' => '2200',
             'invoice_id' => '12dc',
             'date' => '2023-10-24 20:59:00',
-            'discount_percent' => '15',
-            'discount_price' => '340',
+            'discount_percent' => '92',
+            'discount_price' => '1995',
             'payment_status' => 'paid',
             'delivery_method' => 'home',
-            'delivery_cost' => '40',
+            'delivery_cost' => '140',
 
         ]);
 
         Order::create([
             'user_id' => '3',
             'order_status' => 'accepted',
-            'total_price' => '500',
-            'sub_total' => '400',
+            'total_price' => '1645',
+            'sub_total' => '2850',
             'invoice_id' => '122adc',
             'date' => '2023-10-25 20:59:00',
-            'discount_percent' => '10',
-            'discount_price' => '450',
+            'discount_percent' => '54',
+            'discount_price' => '1545',
             'payment_status' => 'paid',
             'delivery_method' => 'home',
-            'delivery_cost' => '40',
+            'delivery_cost' => '100',
 
         ]);
     }

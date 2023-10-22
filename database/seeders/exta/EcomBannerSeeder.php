@@ -15,9 +15,22 @@ class EcomBannerSeeder extends Seeder
     {
         EcomBanner::truncate();
         EcomBanner::create([
-            'title' => '1',
-            'redirect_url' => '1',
-            'image' => '',
+            'title' => 'web design and devlopment',
+            'redirect_url' => '',
+            'image' => 'assets/backend/banner/01.jpg',
+
+        ]);
+
+        EcomBanner::create([
+            'title' => 'Search Engine Optimization',
+            'redirect_url' => '',
+            'image' => 'assets/backend/banner/02.jpg',
+        ]);
+
+        EcomBanner::create([
+            'title' => 'Graphic Design',
+            'redirect_url' => '',
+            'image' => 'assets/backend/banner/03.jpg',
 
         ]);
     }

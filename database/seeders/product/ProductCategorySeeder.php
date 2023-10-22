@@ -42,7 +42,7 @@ class ProductCategorySeeder extends Seeder
             //  'parent'=>'',
             'url' => Str::slug('Fiction'),
             'image' => '',
-            'slug' => 'https://www.rokomari.com/book?ref=nm',
+            'slug' => Str::slug('Fiction'),
             'meta_title' => 'fiction',
             'meta_information' => '',
             'meta_keywords' => ''
@@ -51,9 +51,9 @@ class ProductCategorySeeder extends Seeder
         ProductCategory::create([
             'title' => 'Science',
             //  'parent'=>'',
-            'url' => 'https://www.rokomari.com/book?ref=nm',
+            'url' => Str::slug('Science'),
             'image' => '',
-            'slug' => 'https://www.rokomari.com/book?ref=nm',
+            'slug' => Str::slug('Science'),
             'meta_title' => 'science',
             'meta_information' => '',
             'meta_keywords' => ''
@@ -62,9 +62,9 @@ class ProductCategorySeeder extends Seeder
         ProductCategory::create([
             'title' => 'Politics',
             //  'parent'=>'',
-            'url' => 'https://www.rokomari.com/book?ref=nm',
+            'url' => Str::slug('Politics'),
             'image' => '',
-            'slug' => 'https://www.rokomari.com/book?ref=nm',
+            'slug' =>  Str::slug('Politics'),
             'meta_title' => 'politics',
             'meta_information' => '',
             'meta_keywords' => ''

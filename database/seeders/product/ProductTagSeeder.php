@@ -16,55 +16,55 @@ class ProductTagSeeder extends Seeder
     {
         ProductTag::truncate();
         ProductTag::create([
-            'title'=>'literature',
+            'title'=>'toliterature',
             //  'parent'=>'',
-            'url'=> Str::slug('literature'),
+            'url'=> Str::slug('toliterature'),
             'image'=>'',
-            'slug' =>  Str::slug('literature'),
+            'slug' =>  Str::slug('toliterature'),
             'meta_title'=>'literature',
             'meta_information'=>'',
             'meta_keywords'=>''
         ]);
 
         ProductTag::create([
-            'title'=>'Novel',
+            'title'=>'toNovel',
             //  'parent'=>'',
-            'url'=> Str::slug('Novel'),
+            'url'=> Str::slug('toNovel'),
             'image'=>'',
-            'slug' =>  Str::slug('Novel'),
+            'slug' =>  Str::slug('toNovel'),
             'meta_title'=>'novel',
             'meta_information'=>'',
             'meta_keywords'=>''
         ]);
 
         ProductTag::create([
-            'title'=>'Fiction',
+            'title'=>'toFiction',
             //  'parent'=>'',
-            'url'=> Str::slug('Fiction'),
+            'url'=> Str::slug('toFiction'),
             'image'=>'',
-            'slug' => Str::slug('Fiction'),
+            'slug' => Str::slug('toFiction'),
             'meta_title'=>'fiction',
             'meta_information'=>'',
             'meta_keywords'=>''
         ]);
 
         ProductTag::create([
-            'title'=>'Science',
+            'title'=>'toScience',
             //  'parent'=>'',
-            'url'=>Str::slug('Science'),
+            'url'=>Str::slug('toScience'),
             'image'=>'',
-            'slug' => Str::slug('Science'),
+            'slug' => Str::slug('toScience'),
             'meta_title'=>'science',
             'meta_information'=>'',
             'meta_keywords'=>''
         ]);
 
         ProductTag::create([
-            'title'=>'Politics',
+            'title'=>'toPolitics',
             //  'parent'=>'',
-            'url'=>Str::slug('Politics'),
+            'url'=>Str::slug('toPolitics'),
             'image'=>'',
-            'slug' => Str::slug('Politics'),
+            'slug' => Str::slug('toPolitics'),
             'meta_title'=>'politics',
             'meta_information'=>'',
             'meta_keywords'=>''

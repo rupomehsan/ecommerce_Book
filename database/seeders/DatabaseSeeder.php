@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use Database\Seeders\exta\EcomBannerSeeder;
+use Database\Seeders\exta\EcomFeedbackSeeder;
 use Database\Seeders\order\OrderPaymentSeeder;
 use Database\Seeders\order\OrderProductSeeder;
 use Database\Seeders\order\OrderSeeder;
@@ -17,6 +19,8 @@ use Database\Seeders\Product\ProductSpecificationSeeder;
 use Database\Seeders\Product\ProductStockLogSeeder;
 use Database\Seeders\Product\ProductStockSeeder;
 use Database\Seeders\Product\ProductTagSeeder;
+use Database\Seeders\siteurl\SiteUrlSeeder;
+use Database\Seeders\siteurl\SiteUrlViewCountSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
@@ -55,6 +59,12 @@ class DatabaseSeeder extends Seeder
             OrderProductSeeder::class,
             OrderPaymentSeeder::class,
 
+            EcomBannerSeeder::class,
+            EcomFeedbackSeeder::class,
+
+
+            SiteUrlSeeder::class,
+            SiteUrlViewCountSeeder::class,
 
 
         ]);
