@@ -24,6 +24,8 @@
                                 <th  style="width: 50px;">title</th>
                                 <th  style="width: 50px;">rederect_url</th>
                                 <th  style="width: 50px;">image</th>
+                                <th  style="width: 80px;">Action</th>
+
                         
                             </tr>
                         </thead>
@@ -34,12 +36,13 @@
                                 <td >{{$item->title}}</td>
                                 <td >{{$item->redirect_url}}</td>
                                 <td>
-                                    <img src="/{{ $item->image }}" height="100px" alt="Image">
+                                    <img src="/{{ $item->image }}" height="100" width="100" alt="Image">
                                 </td>
                                               
                                 <td class="text-end">
                                     <div class="d-flex justify-content-end gap-3">
                                         <a href="{{route('dashboard.banner.edit',$item->id)}}" class="btn btn-sm btn-outline-info"> Edit </a>
+                                        <a href="{{route('dashboard.banner.details',$item->id)}}" class="btn btn-sm btn-outline-warning"> Details </a>
                                         <a href="{{route('dashboard.banner.destory',$item->id)}}" class="btn btn-sm btn-outline-danger"> delete </a></div>
                                 </td>
                             </tr>

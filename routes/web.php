@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\banner\BannerController;
 use App\Http\Controllers\product\ProductCategoryController;
+use App\Http\Controllers\product\ProductController;
+use App\Http\Controllers\product\ProductTagController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +52,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/edit/{id}', [UserController::class, 'edit'])->name('dashboard.user.edit');
     Route::post('/update/{id}', [UserController::class, 'update'])->name('dashboard.user.update');
     Route::get('/destory/{id}', [UserController::class, 'destory'])->name('dashboard.user.destory');
+    Route::get('/details/{id}', [UserController::class, 'details'])->name('dashboard.user.details');
+
 })->middleware('isAdmin');
 
 
@@ -60,6 +64,8 @@ Route::group(['prefix' => 'product-category'], function () {
     Route::get('/edit/{id}', [ProductCategoryController::class, 'edit'])->name('dashboard.product_category.edit');
     Route::post('/update/{id}', [ProductCategoryController::class, 'update'])->name('dashboard.product_category.update');
     Route::get('/destory/{id}', [ProductCategoryController::class, 'destory'])->name('dashboard.product_category.destory');
+    Route::get('/details/{id}', [ProductCategoryController::class, 'details'])->name('dashboard.product_category.details');
+
 })->middleware('isAdmin');
 
 
@@ -70,6 +76,8 @@ Route::group(['prefix' => 'product-tag'], function () {
     Route::get('/edit/{id}', [ProductTagController::class, 'edit'])->name('dashboard.product_tag.edit');
     Route::post('/update/{id}', [ProductTagController::class, 'update'])->name('dashboard.product_tag.update');
     Route::get('/destory/{id}', [ProductTagController::class, 'destory'])->name('dashboard.product_tag.destory');
+    Route::get('/details/{id}', [ProductTagController::class, 'details'])->name('dashboard.product_tag.details');
+
 })->middleware('isAdmin');
 
 
@@ -81,5 +89,19 @@ Route::group(['prefix' => 'banner'], function () {
     Route::get('/edit/{id}', [BannerController::class, 'edit'])->name('dashboard.banner.edit');
     Route::post('/update/{id}', [BannerController::class, 'update'])->name('dashboard.banner.update');
     Route::get('/destory/{id}', [BannerController::class, 'destory'])->name('dashboard.banner.destory');
+    Route::get('/details/{id}', [BannerController::class, 'details'])->name('dashboard.banner.details');
+
+})->middleware('isAdmin');
+
+
+Route::group(['prefix' => 'product'], function () {
+    Route::get('/create',  [ProductController::class, 'create'])->name('dashboard.product.create');
+    Route::post('/store', [ProductController::class, 'store'])->name('dashboard.product.store');
+    Route::get('/view', [ProductController::class, 'view'])->name('dashboard.product.view');
+    Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('dashboard.product.edit');
+    Route::post('/update/{id}', [ProductController::class, 'update'])->name('dashboard.product.update');
+    Route::get('/destory/{id}', [ProductController::class, 'destory'])->name('dashboard.product.destory');
+    Route::get('/details/{id}', [ProductController::class, 'details'])->name('dashboard.product.details');
+
 })->middleware('isAdmin');
 

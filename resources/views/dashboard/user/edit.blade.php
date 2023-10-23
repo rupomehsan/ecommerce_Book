@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="card-header py-2 position-sticky d-flex justify-content-start"><button type="submit"
-                        class="btn btn-info btn-sm">Create</button></div>
+                        class="btn btn-info btn-sm">Update</button></div>
             </div>
         </form>
     </div>

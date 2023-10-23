@@ -61,6 +61,33 @@
                 <li><a href="{{ route('dashboard.product_tag.view') }}" class="active"><i class="fa fa-angle-right"></i>view</a></li>
             </ul>
         </li>
+
+
+
+        <li class="active">
+            <div class="sidebar-title">General</div>
+            <a href="javascript:void(0)" class="sidebar-header">
+                <i class="icon-desktop"></i><span>Banner</span>
+                <i class="fa fa-angle-right pull-right"></i>
+            </a>
+            <ul class="sidebar-submenu">
+                <li><a href="{{ route('dashboard.banner.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
+                <li><a href="{{ route('dashboard.banner.view') }}" class="active"><i class="fa fa-angle-right"></i>view</a></li>
+            </ul>
+        </li>
+
+
+        <li class="active">
+            <div class="sidebar-title">General</div>
+            <a href="javascript:void(0)" class="sidebar-header">
+                <i class="icon-desktop"></i><span>Product</span>
+                <i class="fa fa-angle-right pull-right"></i>
+            </a>
+            <ul class="sidebar-submenu">
+                <li><a href="{{ route('dashboard.product.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
+                <li><a href="{{ route('dashboard.product.view') }}" class="active"><i class="fa fa-angle-right"></i>view</a></li>
+            </ul>
+        </li>
     </ul>
     <!--Page Sidebar Ends-->
 </div>
