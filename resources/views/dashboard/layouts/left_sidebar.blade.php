@@ -19,7 +19,7 @@
             </a>
             <ul class="sidebar-submenu">
                 <li><a href="{{ route('dashboard.role.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.role.view') }}" class="active"><i class="fa fa-angle-right"></i>view</a></li>
+                <li><a href="{{ route('dashboard.role.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
             </ul>
         </li>
 
@@ -32,7 +32,7 @@
             </a>
             <ul class="sidebar-submenu">
                 <li><a href="{{ route('dashboard.user.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.user.view') }}" class="active"><i class="fa fa-angle-right"></i>view</a></li>
+                <li><a href="{{ route('dashboard.user.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
             </ul>
         </li>
 
@@ -45,7 +45,7 @@
             </a>
             <ul class="sidebar-submenu">
                 <li><a href="{{ route('dashboard.product_category.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.product_category.view') }}" class="active"><i class="fa fa-angle-right"></i>view</a></li>
+                <li><a href="{{ route('dashboard.product_category.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
             </ul>
         </li>
 
@@ -58,7 +58,7 @@
             </a>
             <ul class="sidebar-submenu">
                 <li><a href="{{ route('dashboard.product_tag.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.product_tag.view') }}" class="active"><i class="fa fa-angle-right"></i>view</a></li>
+                <li><a href="{{ route('dashboard.product_tag.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
             </ul>
         </li>
 
@@ -72,7 +72,7 @@
             </a>
             <ul class="sidebar-submenu">
                 <li><a href="{{ route('dashboard.banner.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.banner.view') }}" class="active"><i class="fa fa-angle-right"></i>view</a></li>
+                <li><a href="{{ route('dashboard.banner.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
             </ul>
         </li>
 
@@ -85,7 +85,7 @@
             </a>
             <ul class="sidebar-submenu">
                 <li><a href="{{ route('dashboard.product.create') }}"><i class="fa fa-angle-right"></i>create</a></li>
-                <li><a href="{{ route('dashboard.product.view') }}" class="active"><i class="fa fa-angle-right"></i>view</a></li>
+                <li><a href="{{ route('dashboard.product.view') }}" class="active"><i class="fa fa-angle-right"></i>All</a></li>
             </ul>
         </li>
     </ul>

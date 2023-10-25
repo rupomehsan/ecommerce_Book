@@ -43,6 +43,9 @@
 
     <!-- latest jquery-->
     <script src="/assets/backend/jquery-3.2.1.min.js.download"></script>
+    
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+
     <!-- Bootstrap js-->
     <script src="/assets/backend/bootstrap.bundle.min.js.download"></script>
     <!-- Theme js-->
