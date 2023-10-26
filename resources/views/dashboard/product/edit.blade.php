@@ -36,7 +36,7 @@
                                                 <span class="mb-2 d-block">
                                                     Product Name
                                                 </span>
-                                                <input type="text"  name="product_name"
+                                                <input type="text" value="{{$editdata->product_name}}"  name="product_name" 
                                                     class="form-control" />
                                                 <!---->
                                             </label>
@@ -49,7 +49,7 @@
                                                 <span class="mb-2 d-block">
                                                     Meta keywords
                                                 </span>
-                                                <input type="text" id="meta_keywords" name="meta_keywords"
+                                                <input type="text" id="meta_keywords"  value="{{$editdata->product_name}}" name="meta_keywords"
                                                     class="form-control" />
                                                 <!---->
                                             </label>
@@ -63,7 +63,7 @@
                                                     <span class="mb-2 d-block">
                                                         cost
                                                     </span>
-                                                    <input type="text" id="cost" name="cost"
+                                                    <input type="text" id="cost" value="{{$editdata->product_name}}" name="cost"
                                                         class="form-control" />
                                                     <!---->
                                                 </label>
@@ -76,7 +76,7 @@
                                                     <span class="mb-2 d-block">
                                                         sales price
                                                     </span>
-                                                    <input type="text" id="sales_price" name="sales_price"
+                                                    <input type="text" id="sales_price" value="{{$editdata->product_name}}" name="sales_price"
                                                         class="form-control" />
                                                     <!---->
                                                 </label>
@@ -89,7 +89,7 @@
                                                     <span class="mb-2 d-block">
                                                         stock
                                                     </span>
-                                                    <input type="text"  name="stock"
+                                                    <input type="text" value="{{$editdata->product_name}}"  name="stock"
                                                         class="form-control" />
                                                     <!---->
                                                 </label>
@@ -103,7 +103,7 @@
                                                     <span class="mb-2 d-block">
                                                         low stock
                                                     </span>
-                                                    <input type="text" id="low_stock" name="low_stock"
+                                                    <input type="text" value="{{$editdata->product_name}}" name="low_stock"
                                                         class="form-control" />
                                                     <!---->
                                                 </label>
@@ -117,56 +117,26 @@
                                             <label class="mb-2 text-capitalize">
                                                 is top product
                                             </label>
-                                            <input type="number" name=" is_top_product" class="form-control">
+                                            <input type="number" value="{{$editdata->product_name}}" name=" is_top_product" class="form-control">
                                         </div> 
                                         
                                    
 
 
-                                    <div class="form-group full_width d-grid align-content-start gap-1 mb-4">
+                                    {{-- <div class="form-group full_width d-grid align-content-start gap-1 mb-4">
                                         <div>
                                             <label class="mb-2 text-capitalize">
                                                 selected categories
                                             </label>
                                             <select name="selected_categories" id="cars" class="form-control">
                                                 @foreach ( $product_categories as $product_catagory)
-                                                <option value="{{$product_catagory->id}}">{{$product_catagory->title}}</option>
+                                                <option  {{ $editdata->product_catagory == $product_catagory->id ?'selected':'' }} value="{{$product_catagory->id}}">{{$product_catagory->title}}</option>
                                                 @endforeach
                                                
                                             </select>
                                         </div>
-                                    </div>
-                                    {{-- <div class="form-group full_width d-grid align-content-start gap-1 mb-2">
-                                        <h5 class="text-capitalize">
-                                            Product status
-                                        </h5>
-                                        <label for="call_for_price">
-                                            <input type="checkbox" value="1" id="call_for_price"
-                                                class="form-check-input" />
-                                            &nbsp; &nbsp; Call for price
-                                        </label>
-                                        <label for="is_upcomming">
-                                            <input type="checkbox" value="1" id="is_upcomming"
-                                                class="form-check-input" />
-                                            &nbsp; &nbsp; Upcomming
-                                        </label>
-                                        <label for="is_tba">
-                                            <input type="checkbox" value="1" id="is_tba"
-                                                class="form-check-input" />
-                                            &nbsp; &nbsp; TBA
-                                        </label>
-                                        <label for="is_pre_order">
-                                            <input type="checkbox" value="1" id="is_pre_order"
-                                                class="form-check-input" />
-                                            &nbsp; &nbsp; Pre order
-                                        </label>
-                                        <label for="is_in_stock">
-                                            <input checked="checked" type="checkbox" value="1" id="is_in_stock"
-                                                class="form-check-input" />
-                                            &nbsp; &nbsp; In stock available
-                                        </label>
-                                        <br />
                                     </div> --}}
+                                 
                                     <div class="full_width mb-2 row mb-4">
                                         <div class="col-lg-3">
                                             <div class="field_wrapper">
@@ -174,8 +144,9 @@
                                                     <span class="mb-2 d-block">
                                                        Image
                                                     </span>
-                                                    <input type="file" name="image" class="form-control" />
-                                                    <!---->
+                                                    <img src="{{asset($editdata->image)}}" height="80" width='100' alt="">
+                                                    <div class="mt-1 mb-3"><input type="file" value="{{$editdata->image}}">
+                                                
                                                 </label>
                             
                                             </div>
@@ -248,7 +219,7 @@
                                     </div>
                                     <div class="form-group d-grid align-content-start full_width  gap-1 mb-2 ">
                                         <label for="short_description">Short Description</label>
-                                        <textarea id="editor" name="short_description"></textarea>
+                                        <textarea id="editor" value="{{$editdata->short_description}}" name="short_description"></textarea>
                                         <script>
                                             ClassicEditor.create(document.querySelector('#editor'))
                                                 .catch(error => {
@@ -260,7 +231,7 @@
                                     </div>
                                     <div class="form-group d-grid align-content-start full_width gap-1 mb-2">
                                         <label for="specification">Description</label>
-                                        <textarea id="data" name="description" ></textarea>
+                                        <textarea id="data" value="{{$editdata->description}}" name="description" ></textarea>
 
 
                                         <script>
@@ -275,7 +246,7 @@
                                     <div class="form-group d-grid align-content-start full_width gap-1 mb-2">
                                         <label for="description">meta description</label>
                                         <div id="description">
-                                            <textarea id="item" style="display: none;" aria-hidden="true" name="meta_description"></textarea>
+                                            <textarea id="item" value="{{$editdata->meta_description}}" style="display: none;" aria-hidden="true" name="meta_description"></textarea>
 
                                             <script>
                                                 ClassicEditor.create(document.querySelector('#item'))
@@ -300,7 +271,7 @@
                                                         <span class="mb-2 d-block">
                                                             meta title
                                                         </span>
-                                                        <input type="text" id="meta_title" name="page_title"
+                                                        <input type="text" value="{{$editdata->meta_title}}" name="meta_title"
                                                             class="form-control" />
                                                         <!---->
                                                     </label>
@@ -313,7 +284,7 @@
                                                         <span class="mb-2 d-block">
                                                             product url
                                                         </span>
-                                                        <input type="text"  name="product_url"
+                                                        <input type="text" value="{{$editdata->product_url}}" name="product_url"
                                                             class="form-control" />
                                                         <!---->
                                                        </label>
@@ -328,7 +299,7 @@
                                                         <span class="mb-2 d-block">
                                                             video_url
                                                         </span>
-                                                        <input type="text" name="video_url" class="form-control" />
+                                                        <input type="text" value="{{$editdata->video_url}}" name="video_url" class="form-control" />
                                                         <!---->
                                                        </label>
                                                     <!---->
@@ -341,7 +312,7 @@
                                                         <span class="mb-2 d-block">
                                                             schema_tag
                                                         </span>
-                                                        <input type="text"  name="schema_tag"
+                                                        <input type="text" value="{{$editdata->schema_tag}}"  name="schema_tag"
                                                             class="form-control" />
                                                         <!---->
                                                        </label>
@@ -358,7 +329,7 @@
                     <div class="card-footer text-center">
                         <button type="submit" class="btn btn-outline-info">
                             <i class="fa fa-upload"></i>
-                            Submit
+                            Update
                         </button>
                     </div>
                 </form>
