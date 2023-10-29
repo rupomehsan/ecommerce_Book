@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\banner\BannerController;
 use App\Http\Controllers\product\ProductCategoryController;
 use App\Http\Controllers\product\ProductController;
@@ -19,11 +20,21 @@ use App\Http\Controllers\UserRoleController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
+Route::get('/', [App\Http\Controllers\frontend\FrontendController::class, 'index'])->name('home');
+Route::get('/product-details/{id}', [App\Http\Controllers\frontend\ProductController::class, 'product_details'])->name('product_details');
+Route::get('/add-to-cart/{id}', [App\Http\Controllers\frontend\ProductController::class, 'add_to_cart'])->name('addToCart');
+Route::get('/cart', [App\Http\Controllers\frontend\ProductController::class, 'cart'])->name('cart');
+Route::post('/cart-update', [App\Http\Controllers\frontend\ProductController::class, 'quantityUpdate'])->name('prductQuantityUpdate');
+Route::get('/cart-delete/{id}', [App\Http\Controllers\frontend\ProductController::class, 'cartDelete'])->name('cartDelete');
+
+
+
+
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('isAdmin');
 
@@ -53,7 +64,6 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/update/{id}', [UserController::class, 'update'])->name('dashboard.user.update');
     Route::get('/destory/{id}', [UserController::class, 'destory'])->name('dashboard.user.destory');
     Route::get('/details/{id}', [UserController::class, 'details'])->name('dashboard.user.details');
-
 })->middleware('isAdmin');
 
 
@@ -65,7 +75,6 @@ Route::group(['prefix' => 'product-category'], function () {
     Route::post('/update/{id}', [ProductCategoryController::class, 'update'])->name('dashboard.product_category.update');
     Route::get('/destory/{id}', [ProductCategoryController::class, 'destory'])->name('dashboard.product_category.destory');
     Route::get('/details/{id}', [ProductCategoryController::class, 'details'])->name('dashboard.product_category.details');
-
 })->middleware('isAdmin');
 
 
@@ -77,7 +86,6 @@ Route::group(['prefix' => 'product-tag'], function () {
     Route::post('/update/{id}', [ProductTagController::class, 'update'])->name('dashboard.product_tag.update');
     Route::get('/destory/{id}', [ProductTagController::class, 'destory'])->name('dashboard.product_tag.destory');
     Route::get('/details/{id}', [ProductTagController::class, 'details'])->name('dashboard.product_tag.details');
-
 })->middleware('isAdmin');
 
 
@@ -90,7 +98,6 @@ Route::group(['prefix' => 'banner'], function () {
     Route::post('/update/{id}', [BannerController::class, 'update'])->name('dashboard.banner.update');
     Route::get('/destory/{id}', [BannerController::class, 'destory'])->name('dashboard.banner.destory');
     Route::get('/details/{id}', [BannerController::class, 'details'])->name('dashboard.banner.details');
-
 })->middleware('isAdmin');
 
 
@@ -102,6 +109,4 @@ Route::group(['prefix' => 'product'], function () {
     Route::post('/update/{id}', [ProductController::class, 'update'])->name('dashboard.product.update');
     Route::get('/destory/{id}', [ProductController::class, 'destory'])->name('dashboard.product.destory');
     Route::get('/details/{id}', [ProductController::class, 'details'])->name('dashboard.product.details');
-
 })->middleware('isAdmin');
-
