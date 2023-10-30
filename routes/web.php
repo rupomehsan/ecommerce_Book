@@ -20,19 +20,11 @@ use App\Http\Controllers\UserRoleController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\frontend\FrontendController::class, 'index'])->name('home');
-Route::get('/product-details/{id}', [App\Http\Controllers\frontend\ProductController::class, 'product_details'])->name('product_details');
-Route::get('/add-to-cart/{id}', [App\Http\Controllers\frontend\ProductController::class, 'add_to_cart'])->name('addToCart');
-Route::get('/cart', [App\Http\Controllers\frontend\ProductController::class, 'cart'])->name('cart');
-Route::post('/cart-update', [App\Http\Controllers\frontend\ProductController::class, 'quantityUpdate'])->name('prductQuantityUpdate');
-Route::get('/cart-delete/{id}', [App\Http\Controllers\frontend\ProductController::class, 'cartDelete'])->name('cartDelete');
-
-
 
 
 
@@ -110,3 +102,7 @@ Route::group(['prefix' => 'product'], function () {
     Route::get('/destory/{id}', [ProductController::class, 'destory'])->name('dashboard.product.destory');
     Route::get('/details/{id}', [ProductController::class, 'details'])->name('dashboard.product.details');
 })->middleware('isAdmin');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

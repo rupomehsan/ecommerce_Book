@@ -2,7 +2,6 @@
 
 namespace Database\Seeders\siteurl;
 
-use App\Models\orders\Product;
 use App\Models\products\ProductCategory;
 use App\Models\products\ProductTag;
 use App\Models\siturl\SiteUrl;
@@ -32,19 +31,19 @@ class SiteUrlSeeder extends Seeder
             ]);
         }
 
-        $products = Product::get();
+        // $products = Product::get();
 
-        foreach ($products as $product) {
-            SiteUrl::create([
-                'url' => $product->product_url,
-                'url_for_table' => 'products',
-                'url_for_table_id' =>  $product->id,
-                'url_redirect_to' => '',
-                'total_view' => '',
-                'total_redirect' => '',
+        // foreach ($products as $product) {
+        //     SiteUrl::create([
+        //         'url' => $product->product_url,
+        //         'url_for_table' => 'products',
+        //         'url_for_table_id' =>  $product->id,
+        //         'url_redirect_to' => '',
+        //         'total_view' => '',
+        //         'total_redirect' => '',
 
-            ]);
-        }
+        //     ]);
+        // }
 
 
         $ProductTags = ProductTag::get();
