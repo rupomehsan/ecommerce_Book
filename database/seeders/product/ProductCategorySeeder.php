@@ -15,59 +15,52 @@ class ProductCategorySeeder extends Seeder
     public function run(): void
     {
         ProductCategory::truncate();
-        ProductCategory::create([
-            'title' => 'literature',
-            //  'parent'=>'',
-            'url' => Str::slug('literature'),
-            'image' => '',
-            'slug' => Str::slug('literature'),
-            'meta_title' => 'literature',
-            'meta_information' => '',
-            'meta_keywords' => ''
-        ]);
 
-        ProductCategory::create([
-            'title' => 'Novel',
-            //  'parent'=>'',
-            'url' => Str::slug('Novel'),
-            'image' => '',
-            'slug' => Str::slug('Novel'),
-            'meta_title' => 'novel',
-            'meta_information' => '',
-            'meta_keywords' => ''
-        ]);
+        $categories = [      
+           
+            [
+                "title" => " মগ",
+            ],
+            [
+                "title" => "কলম",
+            ],
+            [
+                "title" => "ঘড়ি",
+            ],
+            [
+                "title" => "নোটবুক",
+            ],
 
-        ProductCategory::create([
-            'title' => 'Fiction',
-            //  'parent'=>'',
-            'url' => Str::slug('Fiction'),
-            'image' => '',
-            'slug' => Str::slug('Fiction'),
-            'meta_title' => 'fiction',
-            'meta_information' => '',
-            'meta_keywords' => ''
-        ]);
+            [
+                "title" => "কলমদানি",
+            ],
 
-        ProductCategory::create([
-            'title' => 'Science',
-            //  'parent'=>'',
-            'url' => Str::slug('Science'),
-            'image' => '',
-            'slug' => Str::slug('Science'),
-            'meta_title' => 'science',
-            'meta_information' => '',
-            'meta_keywords' => ''
-        ]);
+            [
+                "title" => "চাবির রিং",
+            ],
+            
+            [
+                "title" => "ক্যালেন্ডার ",
+            ],
+           
+           
 
-        ProductCategory::create([
-            'title' => 'Politics',
-            //  'parent'=>'',
-            'url' => Str::slug('Politics'),
-            'image' => '',
-            'slug' =>  Str::slug('Politics'),
-            'meta_title' => 'politics',
-            'meta_information' => '',
-            'meta_keywords' => ''
-        ]);
+        ];
+
+
+        foreach ($categories as  $category) {
+
+               ProductCategory::create([
+                'parent' => 0,
+                'title' => $category['title'],
+                'url' => Str::slug($category['title']),
+                'image' => '',
+                'slug' => Str::slug($category['title']),
+                'meta_title' => $category['title'],
+                'meta_information' => $category['title'],
+                'meta_keywords' => $category['title'],
+            ]);
+
+        }
     }
 }
