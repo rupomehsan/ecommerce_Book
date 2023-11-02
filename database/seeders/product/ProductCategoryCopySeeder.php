@@ -14,7 +14,7 @@ class ProductCategoryCopySeeder extends Seeder
      */
     public function run(): void
     {
-        {
+        
             ProductCategory::truncate();
     
             $cats = [
@@ -166,6 +166,6 @@ class ProductCategoryCopySeeder extends Seeder
                     }
                 }
             }
-        }
+        
     }
 }
