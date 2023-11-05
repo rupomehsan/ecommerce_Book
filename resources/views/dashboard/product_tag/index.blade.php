@@ -5,7 +5,7 @@
             <div class="card rounded-none">
                 <div class="card-header pt-3 pb-1 d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="bn" style="font-size: 22px !important;">All Blogs</h4>
+                        <h4 class="" style="font-size: 22px !important;">All Blogs</h4>
                     </div>
                     <div class="d-flex justify-content-between">
                         <!-- <label class="switch">

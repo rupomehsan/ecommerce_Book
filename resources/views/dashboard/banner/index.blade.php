@@ -5,7 +5,7 @@
     <div style="margin-top: 100px;">
         <div class="card rounded-none">
             <div class="card-header pt-3 pb-1 d-flex justify-content-between align-items-center">
-                <div><h4 class="bn" style="font-size: 22px !important;">All Blogs</h4></div>
+                <div><h4 class="" style="font-size: 22px !important;">All Blogs</h4></div>
                 <div class="d-flex justify-content-between">
                     <!-- <label class="switch">
                         <input v-if="data.is_visible" type="checkbox" @change="toggle" checked="">
@@ -26,7 +26,7 @@
                                 <th  style="width: 50px;">image</th>
                                 <th  style="width: 80px;">Action</th>
 
-                        
+
                             </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,7 @@
                                 <td>
                                     <img src="/{{ $item->image }}" height="100" width="100" alt="Image">
                                 </td>
-                                              
+
                                 <td class="text-end">
                                     <div class="d-flex justify-content-end gap-3">
                                         <a href="{{route('dashboard.banner.edit',$item->id)}}" class="btn btn-sm btn-outline-info"> Edit </a>
@@ -47,7 +47,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                   
+
                         </tbody>
                     </table>
                 </div>
@@ -69,6 +69,6 @@
             </div>
         </div>
     </div>
-</div>  
+</div>
 @endsection
 

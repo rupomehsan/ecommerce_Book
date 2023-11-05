@@ -5,28 +5,30 @@
     <div style="margin-top: 100px;">
         <div class="card rounded-none">
             <div class="card-header pt-3 pb-1 d-flex justify-content-between align-items-center">
-                <div><h4 class="bn" style="font-size: 22px !important;">All Blogs</h4></div>
+                <div><h4 class="" style="font-size: 22px !important;">All Users</h4></div>
                 <div class="d-flex justify-content-between">
                     <!-- <label class="switch">
                         <input v-if="data.is_visible" type="checkbox" @change="toggle" checked="">
                         <input v-else type="checkbox" @change="toggle">
                         <span class="switch-state" style="background-color: #4c6887;"></span>
                     </label> -->
-                    <div class="ps-3 d-flex gap-2"><a href="#/admin/blog/category" class="btn btn-sm btn-info"> All Category </a><a href="{{ route('dashboard.user.create') }}" class="btn btn-sm btn-info"> Create </a></div>
+                    <div class="ps-3 d-flex gap-2">
+                        <a href="{{ route('dashboard.user.create') }}" class="btn btn-sm btn-info"> Create </a>
+                    </div>
                 </div>
             </div>
             <div class="card-body px-4 py-2 form_area custom_scroll">
                 <div class="custom_table nowrap table-responsive w-100 h-100 custom_scroll">
                     <table class="table table-bordered table-hover text-center">
                         <thead>
-                            <tr>
+                            <tr class="text-capitalize">
                                 <th  style="width: 50px;">SL</th>
-                                <th  style="width: 50px;">first_name</th>
-                                <th  style="width: 50px;">last_name</th>
-                                <th  style="width: 50px;">user_name</th>
-                                <th  style="width: 50px;">telegram_id</th>
-                                <th  style="width: 50px;">telegram_name</th>
-                                <th  style="width: 50px;">mobile_number</th>
+                                <th  style="width: 50px;">first name</th>
+                                <th  style="width: 50px;">last name</th>
+                                <th  style="width: 50px;">user name</th>
+                                <th  style="width: 50px;">telegram id</th>
+                                <th  style="width: 50px;">telegram name</th>
+                                <th  style="width: 50px;">mobile number</th>
                                 <th  style="width: 50px;">photo</th>
                                 <th  style="width: 200px;">email</th>
                                 <th  style="width: 80px;">Action</th>
@@ -43,7 +45,7 @@
                                 <td>{{$item->telegram_name}}</td>
                                 <td >{{$item->mobile_number}}</td>
                                 <td>
-                                    <img src="/{{ $item->photo }}" height="100px" alt="Image">
+                                    <img src="/{{ $item->photo }}" height="20px" alt="Image">
                                 </td>
                                 <td >{{$item->email}}</td>
 
@@ -55,7 +57,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                   
+
                         </tbody>
                     </table>
                 </div>
@@ -77,6 +79,6 @@
             </div>
         </div>
     </div>
-</div>  
+</div>
 @endsection
 

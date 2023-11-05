@@ -5,7 +5,7 @@
             <div class="card rounded-none">
                 <div class="card-header pt-3 pb-1 d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="bn" style="font-size: 22px !important;">User Details</h4>
+                        <h4 class="" style="font-size: 22px !important;">User Details</h4>
                     </div>
                     <div class="d-flex justify-content-between">
                         <!-- <label class="switch">
@@ -32,13 +32,13 @@
                                     <td>{{ $banner_details->redirect_url }}</td>
                                 </tr>
 
-                       
+
                                 <tr>
                                     <th>Image:</th>
                                     <td><img src="/{{ $banner_details->image }}" height="80" width="100" alt=""></td>
                                 </tr>
 
-                                
+
                             </tbody>
                         </table>
                     </div>
