@@ -5,14 +5,14 @@
             <div class="card rounded-none">
                 <div class="card-header pt-3 pb-1 d-flex justify-content-between align-items-center">
                     <div>
-                        <h4 class="bn" style="font-size: 22px !important;">All Product category</h4>
+                        <h4 class="bn" style="font-size: 22px !important;">All Product</h4>
                     </div>
                     <div class="d-flex justify-content-between">
                         <!-- <label class="switch">
-                                    <input v-if="data.is_visible" type="checkbox" @change="toggle" checked="">
-                                    <input v-else type="checkbox" @change="toggle">
-                                    <span class="switch-state" style="background-color: #4c6887;"></span>
-                                </label> -->
+                                                <input v-if="data.is_visible" type="checkbox" @change="toggle" checked="">
+                                                <input v-else type="checkbox" @change="toggle">
+                                                <span class="switch-state" style="background-color: #4c6887;"></span>
+                                            </label> -->
                         <div class="ps-3 d-flex gap-2"><a href="#/admin/blog/category" class="btn btn-sm btn-info"> All
                                 Category </a><a href="{{ route('dashboard.product_category.create') }}"
                                 class="btn btn-sm btn-info"> Create </a></div>
@@ -49,54 +49,67 @@
                                             @if ($item->stocks_sum_qty - $item->orders_sum_qty > 0)
                                                 in_stock
                                             @else
-                                            not in stock
+                                                not in stock
                                             @endif
                                         </td>
-                                        <td>{{ $item->sales_price }}</td>
                                         <td>
-                                            @isset($item->discount)
+                                            @if ($item->discount)
+                                                {{ $item->discount->main_price }}
+                                            @else
+                                                {{ $item->sales_price }}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($item->discount)
                                                 {{ $item->discount->discount_percent }}
-                                            @endisset
+                                            @else
+                                                {{ 0 }}
+                                            @endif
                                         </td>
                                         <td>
-                                            @isset($item->discount)
+
+                                            @if ($item->discount)
                                                 {{ $item->discount->discount_price }}
-                                            @endisset
+                                            @else
+                                                {{ $item->sales_price }}
+                                            @endif
                                         </td>
                                         <td>
-                                            @isset($item->discount)
-                                                {{ $item->price - $item->discount->discount_price }}
-                                            @endisset
-                                        </td>
-                                        <td>{{ $item->stocks_sum_qty }}</td>
-                                        <td>{{ $item->orders_sum_qty }}</td>
-                                        <td>{{ $item->stocks_sum_qty - $item->orders_sum_qty }}</td>
+                                            @if($item->discount)
+                                                {{ $item->sales_price - $item->discount->discount_price }}
+                                            @else
+                                                {{ $item->sales_price }}
+                                             @endif
+                                       </td>
+                                    <td>{{ $item->stocks_sum_qty }}</td>
+                                    <td>{{ $item->orders_sum_qty }}</td>
+                                    <td>{{ $item->stocks_sum_qty - $item->orders_sum_qty }}</td>
 
 
 
-                                        <td class="text-end">
-                                            <div class="d-flex justify-content-end gap-3">
-                                                <a href="{{ route('dashboard.product.edit', $item->id) }}"
-                                                    class="btn btn-sm btn-outline-info"> Edit </a>
-                                                <a href="{{ route('dashboard.product.details', $item->id) }}"
-                                                    class="btn btn-sm btn-outline-warning"> Details </a>
-                                                <a href="{{ route('dashboard.product.destory', $item->id) }}"
-                                                    class="btn btn-sm btn-outline-danger">delete </a>
-                                            </div>
-                                        </td>
+                                    <td class="text-end">
+                                        <div class="d-flex justify-content-end gap-3">
+                                            <a href="{{ route('dashboard.product.edit', $item->id) }}"
+                                                class="btn btn-sm btn-outline-info"> Edit </a>
+                                            <a href="{{ route('dashboard.product.details', $item->id) }}"
+                                                class="btn btn-sm btn-outline-warning"> Details </a>
+                                            <a href="{{ route('dashboard.product.destory', $item->id) }}"
+                                                class="btn btn-sm btn-outline-danger">delete </a>
+                                        </div>
+                                    </td>
                                     </tr>
-                                @endforeach
+                                    @endforeach
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-                <div class="card-footer py-2">
-                    <nav aria-label="Page navigation example" class="">
+                    <div class="card-footer py-2">
+                        <nav aria-label="Page navigation example" class="">
 
-                        {{ $all_data->links() }}
+                            {{ $all_data->links() }}
 
-                        {{-- <ul class="pagination pagination-warning">
+                            {{-- <ul class="pagination pagination-warning">
                         <li class="page-item">
                             <a class="page-link"><span>« Previous</span></a>
                         </li>
@@ -107,9 +120,9 @@
                             <a class="page-link"><span>Next »</span></a>
                         </li>
                     </ul> --}}
-                    </nav>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

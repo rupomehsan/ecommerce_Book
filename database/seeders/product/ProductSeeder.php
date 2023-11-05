@@ -22,76 +22,76 @@ class ProductSeeder extends Seeder
             [
                 "product_name" => "Golpo Somorgo-1",
                 "selected_categories" => 4,
-                "image" =>"asset/frontend/products/notebook/golpo somorga 1/01.jpg"
+                "image" =>"assets/frontend/products/notebook/golpo_somorga1/01.jpg"
 
             ],
 
             [
                 "product_name" => "Golpo somorgo-3",
                 "selected_categories" => 4,
-                "image" =>"asset/frontend/products/notebook/golpo somorga 3/01.jpg"
+                "image" =>"assets/frontend/products/notebook/golpo_somorga3/01.jpg"
 
             ],
 
             [
                 "product_name" => "KK Kye Ring",
                 "selected_categories" => 6,
-                "image" =>"asset/frontend/products/key_ring/kk/updatKeyRing/01.jpg"
+                "image" =>"assets/frontend/products/key_ring/kk/updatKeyRing/01.jpg"
 
             ],
 
             [
                 "product_name" =>"কলম কি ক",
                 "selected_categories" => 2,
-                "image" =>"asset/frontend/products/pen/01.png"
+                "image" =>"assets/frontend/products/pen/01.png"
 
             ],
 
             [
                 "product_name" => "কলমদানি",
                 "selected_categories" => 2,
-                "image" =>"asset/frontend/products/pen_holder/01.png"
+                "image" =>"assets/frontend/products/pen_holder/01.png"
 
             ],
 
             [
                 "product_name" => "কি ক পত্রিকা",
                 "selected_categories" => 4,
-                "image" =>"asset/frontend/products/newspaper/01.png"
+                "image" =>"assets/frontend/products/newspaper/01.png"
 
             ],
 
             [
                 "product_name" => "কিশোরকণ্ঠ কলম-2",
                 "selected_categories" => 2,
-                "image" =>"asset/frontend/products/kisorkantho_pen/01.png"
+                "image" =>"assets/frontend/products/kisorkantho_pen/01.png"
 
             ],
 
             [
                 "product_name" => "কিশোরকণ্ঠ ঘড়ি",
                 "selected_categories" => 3,
-                "image" =>"asset/frontend/products/watch/03.png"
+                "image" =>"assets/frontend/products/watch/03.png"
 
             ],
             [
                 "product_name" => "কিশোরকন্ঠ নোটবুক",
                 "selected_categories" => 4,
-                "image" =>"asset/frontend/products/notebook/3.png"
+                "image" =>"assets/frontend/products/notebook/3.png"
 
             ],
 
             [
                 "product_name" => "ক্যালেন্ডার",
                 "selected_categories" => 7,
-                "image" =>"asset/frontend/products/watch/03.png"
+                "image" =>"assets/frontend/products/watch/03.png"
 
             ],
 
             [
                 "product_name" => "মগ কি ক",
                 "selected_categories" => 1,
-                "image" =>"asset/frontend/products/mug/01.png"
+                "image" =>"assets/frontend/products/mug/01.png"
 
             ],
         ];

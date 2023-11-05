@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('selected_categories')->nullable();
             $table->text('short_description')->nullable();
             $table->longText('description')->nullable();
-            $table->float('discount')->nullable();
             $table->string('image', 200)->nullable();
             $table->float('cost')->nullable();
             $table->float('sales_price')->nullable();
