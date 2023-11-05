@@ -14,6 +14,8 @@
                                 <span class="switch-state" style="background-color: #4c6887;"></span>
                             </label> -->
                         <div class="ps-3 d-flex gap-2">
+                            <a href="{{ route('dashboard.product_category.view') }}" class="btn btn-sm btn-primary"> All </a>
+                            <a href="{{ route('dashboard.product_category.edit', $details->id) }}" class="btn btn-sm btn-secondary"> Edit </a>
                             <a href="{{ route('dashboard.product_category.create') }}" class="btn btn-sm btn-info"> Create </a>
                         </div>
                     </div>

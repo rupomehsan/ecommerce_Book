@@ -8,7 +8,7 @@
                 <div>
                     <div class="card-header py-3 position-sticky d-flex justify-content-between align-items-center">
                         <h6>Product Category edit</h6>
-                        <a href="#/admin/blog/category" class="router-link-active btn btn-info btn-sm">Back</a>
+                        <a href="{{ route('dashboard.product_category.view') }}" class="router-link-active btn btn-info btn-sm">Back</a>
                     </div>
                 </div>
                 <div class="card-body">
