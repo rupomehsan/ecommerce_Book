@@ -14,7 +14,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="/assets/backend/logo.png" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/backend/logo.png" type="image/x-icon">
-    <title>Dashbaord</title>
+    <title>kishor kontho</title>
 
     <!--Google font-->
     <link href="/assets/backend/css" rel="stylesheet">
@@ -35,33 +35,38 @@
     <!-- Responsive css -->
     <link rel="stylesheet" type="text/css" href="/assets/backend/responsive.css">
 
-
     <link rel="stylesheet" type="text/css" href="/assets/backend/custom.css">
+    <script src="/assets/backend/sa.js"></script>
+    <script src="/assets/backend/js/app.js" defer></script>
 
+    @stack('js')
     <!-- latest jquery-->
-    <script src="/assets/backend/jq.js"></script>
+    {{-- <script src="/assets/backend/jq.js"></script> --}}
 
     <!-- Bootstrap js-->
-    <script src="/assets/backend/bootstrap.bundle.min.js"></script>
+    {{-- <script src="/assets/backend/bootstrap.bundle.min.js"></script> --}}
     <!-- Theme js-->
-    <script src="/assets/backend/script.js" defer=""></script>
+    {{-- <script src="/assets/backend/script.js" defer=""></script> --}}
 
 </head>
 
-<body
-    main-theme-layout="main-theme-layout-4"
-    class=""
-    cz-shortcut-listen="true"
->
-    <div class="pace pace-inactive">
-        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
-            <div class="pace-progress-inner"></div>
-        </div>
-        <div class="pace-activity"></div>
-    </div>
-
+<body main-theme-layout="main-theme-layout-4" class="" cz-shortcut-listen="true">
+    @if(session()->has('success'))
+        <script >
+            setTimeout(() => {
+                window.s_alert("{{session()->get('success')}}")
+            }, 300);
+        </script>
+    @endif
+    @if(session()->has('errors'))
+        <script >
+            setTimeout(() => {
+                window.s_alert("there is an error","error")
+            }, 300);
+        </script>
+    @endif
     <!--page-wrapper Start-->
-    <div class="page-wrapper" id="app" data-v-app="">
+    <div class="page-wrapper" id="app">
         <div>
             @include('dashboard.layouts.top_header')
             <!--Page Body Start-->
