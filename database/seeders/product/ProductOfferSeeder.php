@@ -2,94 +2,35 @@
 
 namespace Database\Seeders\Product;
 
+use App\Models\products\Product;
 use App\Models\products\ProductOffer;
 use App\Models\products\ProductReview;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ProductOfferSeeder extends Seeder
 {
-    /**
+    /** php artisan db:seed --class="Database\Seeders\Product\ProductOfferSeeder"
      * Run the database seeds.
      */
     public function run(): void
     {
         ProductOffer::truncate();
-        ProductOffer::create([
-            'product_id'=>'1',
-            'start_date'=>'2023-10-24 20:59:00',
-            'end_date'=>'2023-12-28 20:59:00',
-            'main_price'=>'600',
-            'discount_percent'=>'50',
-            'discount_price'=>'300',
-           
-        ]);
-        ProductOffer::create([
-            'product_id'=>'2',
-            'start_date'=>'2023-10-26 20:59:00',
-            'end_date'=>'2023-12-28 20:59:00',
-            'main_price'=>'400',
-            'discount_percent'=>'30',
-            'discount_price'=>'280',
-           
-        ]); 
-        ProductOffer::create([
-            'product_id'=>'3',
-            'start_date'=>'2023-10-24 20:59:00',
-            'end_date'=>'2023-12-28 20:59:00',
-            'main_price'=>'500',
-            'discount_percent'=>'20',
-            'discount_price'=>'400',
-           
-        ]); 
-        ProductOffer::create([
-            'product_id'=>'4',
-            'start_date'=>'2023-10-28 20:59:00',
-            'end_date'=>'2023-12-30 20:59:00',
-            'main_price'=>'350',
-            'discount_percent'=>'10',
-            'discount_price'=>'315',
-           
-        ]);
 
-        ProductOffer::create([
-            'product_id'=>'5',
-            'start_date'=>'2023-10-28 20:59:00',
-            'end_date'=>'2023-12-30 20:59:00',
-            'main_price'=>'400',
-            'discount_percent'=>'10',
-            'discount_price'=>'360',
-           
-        ]);
-
-        ProductOffer::create([
-            'product_id'=>'6',
-            'start_date'=>'2023-10-28 20:59:00',
-            'end_date'=>'2023-12-30 20:59:00',
-            'main_price'=>'300',
-            'discount_percent'=>'5',
-            'discount_price'=>'285',
-           
-        ]);
-
-        ProductOffer::create([
-            'product_id'=>'7',
-            'start_date'=>'2023-10-28 20:59:00',
-            'end_date'=>'2023-12-30 20:59:00',
-            'main_price'=>'550',
-            'discount_percent'=>'50',
-            'discount_price'=>'275',
-           
-        ]);
-
-        ProductOffer::create([
-            'product_id'=>'8',
-            'start_date'=>'2023-10-28 20:59:00',
-            'end_date'=>'2023-12-30 20:59:00',
-            'main_price'=>'600',
-            'discount_percent'=>'40',
-            'discount_price'=>'360',
-           
-        ]);
+        $products = Product::get();
+        foreach ($products as $product) {
+            $percent = rand(10,60);
+            $dis_price = round($product->sales_price * $percent / 100 );
+            ProductOffer::create([
+                'product_id' => $product->id,
+                'start_date' => Carbon::now()->toDateTimeString(),
+                'end_date' => Carbon::now()->addDays(60)->toDateTimeString(),
+                'main_price' => $product->sales_price,
+                'discount_percent' => $percent,
+                'discount_flat_amount' => $dis_price,
+                'discount_price' => $product->sales_price - $dis_price,
+            ]);
+        }
     }
 }
