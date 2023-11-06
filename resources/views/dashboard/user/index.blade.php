@@ -22,39 +22,39 @@
                     <table class="table table-bordered table-hover text-center">
                         <thead>
                             <tr class="text-capitalize">
-                                <th  style="width: 50px;">SL</th>
-                                <th  style="width: 50px;">first name</th>
-                                <th  style="width: 50px;">last name</th>
-                                <th  style="width: 50px;">user name</th>
+                                <th  style="width: 100px;">SL</th>
+                                <th  style="width: 50px;">photo</th>
+                                <th  style="width: 200px;text-align: left;">name</th>
+                                {{-- <th  style="width: 50px;">user name</th> --}}
                                 <th  style="width: 50px;">telegram id</th>
                                 <th  style="width: 50px;">telegram name</th>
                                 <th  style="width: 50px;">mobile number</th>
-                                <th  style="width: 50px;">photo</th>
                                 <th  style="width: 200px;">email</th>
-                                <th  style="width: 80px;">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($alldata as $item)
                             <tr>
                                 <td >{{$loop->index + 1}}</td>
-                                <td >{{$item->first_name}}</td>
-                                <td>{{$item->last_name}}</td>
-                                <td >{{$item->user_name}}</td>
-                                <td >{{$item->telegram_id}}</td>
-                                <td>{{$item->telegram_name}}</td>
-                                <td >{{$item->mobile_number}}</td>
                                 <td>
                                     <img src="/{{ $item->photo }}" height="20px" alt="Image">
                                 </td>
-                                <td >{{$item->email}}</td>
-
-                                <td class="text-end">
-                                    <div class="d-flex justify-content-end gap-3">
-                                        <a href="{{route('dashboard.user.edit',$item->id)}}" class="btn btn-sm btn-outline-info"> Edit </a>
-                                        <a href="{{route('dashboard.user.details',$item->id)}}" class="btn btn-sm btn-outline-info"> Details </a>
-                                        <a href="{{route('dashboard.user.destory',$item->id)}}" class="btn btn-sm btn-outline-danger"> delete </a></div>
+                                <td class="text-start">
+                                    <b>
+                                        {{$item->first_name}} {{$item->last_name}}
+                                    </b>
+                                    <div class="d-flex gap-2 mt-2 flex-wrap">
+                                        <a href="{{route('dashboard.user.edit',$item->id)}}" class="text-info"> Edit </a>
+                                        <a href="{{route('dashboard.product_category.details',$item->id)}}" class="text-warning"> Details </a>
+                                        <a onclick="return confirm(`delete data?`)" href="{{route('dashboard.user.destory',$item->id)}}" class="text-danger">delete </a>
+                                    </div>
                                 </td>
+                                {{-- <td >{{$item->user_name}}</td> --}}
+                                <td >{{$item->telegram_id}}</td>
+                                <td>{{$item->telegram_name}}</td>
+                                <td >{{$item->mobile_number}}</td>
+
+                                <td >{{$item->email}}</td>
                             </tr>
                             @endforeach
 

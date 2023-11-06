@@ -26,17 +26,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('isAdmin');
-
-
-
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('home')->middleware('isAdmin');
 Route::get('/pages', [App\Http\Controllers\Admin\PagesController::class, 'index'])->name('pages');
 Route::get('/pages/create', [App\Http\Controllers\Admin\PagesController::class, 'create'])->name('pages.create');
-
-
-
 
 Route::group(['prefix' => 'user-role'], function () {
     Route::get('/', [UserRoleController::class, 'view'])->name('dashboard.role.view');
@@ -99,6 +91,9 @@ Route::group(['prefix' => 'product'], function () {
     Route::post('/update/{id}', [ProductController::class, 'update'])->name('dashboard.product.update');
     Route::get('/destory/{id}', [ProductController::class, 'destory'])->name('dashboard.product.destory');
     Route::get('/details/{id}', [ProductController::class, 'details'])->name('dashboard.product.details');
+
+    Route::get('/discount/{id}', [ProductController::class, 'discount'])->name('dashboard.product.discount');
+    Route::post('/discount/{id}', [ProductController::class, 'discount_submit'])->name('dashboard.product.discount_submit');
 })->middleware('isAdmin');
 
 Auth::routes();

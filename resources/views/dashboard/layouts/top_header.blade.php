@@ -38,7 +38,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();return confirm('logout') && document.getElementById('logout-form').submit();">
                                 <i class="icon-power-off"></i> Logout
                             </a>
                         </li>

@@ -12,7 +12,9 @@
                         <input v-else type="checkbox" @change="toggle">
                         <span class="switch-state" style="background-color: #4c6887;"></span>
                     </label> -->
-                    <div class="ps-3 d-flex gap-2"><a href="#/admin/blog/category" class="btn btn-sm btn-info"> All Category </a><a href="#/admin/blog/create" class="btn btn-sm btn-info"> Create </a></div>
+                    <div class="ps-3 d-flex gap-2">
+                        <a href="{{ route('dashboard.banner.create') }}" class="btn btn-sm btn-info"> Create </a>
+                    </div>
                 </div>
             </div>
             <div class="card-body px-4 py-2 form_area custom_scroll">
@@ -21,30 +23,37 @@
                         <thead>
                             <tr>
                                 <th  style="width: 50px;">SL</th>
-                                <th  style="width: 50px;">title</th>
-                                <th  style="width: 50px;">rederect_url</th>
                                 <th  style="width: 50px;">image</th>
-                                <th  style="width: 80px;">Action</th>
-
-
+                                <th  style="width: 50px;text-align: left;">title</th>
+                                <th  style="width: 50px;">rederect_url</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($alldata as $item)
                             <tr>
                                 <td >{{$loop->index + 1}}</td>
-                                <td >{{$item->title}}</td>
-                                <td >{{$item->redirect_url}}</td>
                                 <td>
-                                    <img src="/{{ $item->image }}" height="100" width="100" alt="Image">
+                                    <img src="/{{ $item->image }}" width="50" alt="Image">
                                 </td>
+                                <td class="text-start" >
+                                    <b>
+                                        {{$item->title}}
+                                    </b>
+                                    <div class="d-flex gap-2 mt-2 flex-wrap">
+                                        <a href="{{route('dashboard.product_category.edit',$item->id)}}" class="text-info"> Edit </a>
+                                        <a href="{{route('dashboard.product_category.details',$item->id)}}" class="text-warning"> Details </a>
+                                        <a onclick="return confirm(`delete data?`)" href="{{route('dashboard.product_category.destory',$item->id)}}" class="text-danger">delete </a>
+                                    </div>
+                                </td>
+                                <td >{{$item->redirect_url}}</td>
 
-                                <td class="text-end">
+                                {{-- <td class="text-end">
                                     <div class="d-flex justify-content-end gap-3">
                                         <a href="{{route('dashboard.banner.edit',$item->id)}}" class="btn btn-sm btn-outline-info"> Edit </a>
                                         <a href="{{route('dashboard.banner.details',$item->id)}}" class="btn btn-sm btn-outline-warning"> Details </a>
-                                        <a href="{{route('dashboard.banner.destory',$item->id)}}" class="btn btn-sm btn-outline-danger"> delete </a></div>
-                                </td>
+                                        <a href="{{route('dashboard.banner.destory',$item->id)}}" class="btn btn-sm btn-outline-danger"> delete </a>
+                                    </div>
+                                </td> --}}
                             </tr>
                             @endforeach
 

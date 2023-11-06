@@ -19,20 +19,21 @@ class ProductTagController extends Controller
 
         $this->validate($request, [
             'title' => ['required'],
-            'parent' => ['required'],
             'url' => ['required'],
-            'image' => ['required'],
+            // 'parent' => ['required'],
+            // 'image' => ['required'],
             'meta_title' => ['required'],
             'meta_information' => ['required'],
             'meta_keywords' => ['required'],
-
         ]);
-        //dd($request->all());
+
         $data = new ProductTag();
         $data->title = $request->title;
-        $data->parent = $request->parent;
         $data->url = $request->url;
-        $data->image = Storage::put('/product_tag_uploads', request()->file('image'));
+
+        // $data->parent = $request->parent;
+        // $data->image = Storage::put('/product_tag_uploads', request()->file('image'));
+
         $data->meta_title = $request->meta_title;
         $data->meta_information = $request->meta_information;
         $data->meta_keywords = $request->meta_keywords;
@@ -42,7 +43,7 @@ class ProductTagController extends Controller
 
     public function view()
     {
-        $alldata = ProductTag::get();
+        $alldata = ProductTag::orderBy('id','DESC')->get();
         return view('dashboard.product_tag.index', compact('alldata'));
     }
 

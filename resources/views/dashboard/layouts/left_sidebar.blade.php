@@ -22,21 +22,15 @@
 
         <li class="">
             <div class="sidebar-title">Management</div>
-            <a href="javascript:void(0)" onclick="toggle_menu()" class="sidebar-header">
+            {{-- <a href="javascript:void(0)" onclick="toggle_menu()" class="sidebar-header">
                 <i class="icon-desktop"></i>
                 <span>User</span>
                 <i class="fa fa-angle-right pull-right"></i>
             </a>
             <ul class="sidebar-submenu">
-                {{-- <li>
-                    <a href="{{ route('dashboard.role.view') }}" class="active">
-                        <i class="fa fa-angle-right"></i>
-                        All user roles
-                    </a>
-                </li> --}}
                 <li><a href="{{ route('dashboard.user.create') }}"><i class="fa fa-angle-right"></i>Create User</a></li>
                 <li><a href="{{ route('dashboard.user.view') }}" class=""><i class="fa fa-angle-right"></i>All User</a></li>
-            </ul>
+            </ul> --}}
         </li>
 
         <li class="">
@@ -66,8 +60,7 @@
             </ul>
         </li>
 
-
-        <li class="">
+        {{-- <li class="">
             <a href="javascript:void(0)" onclick="toggle_menu()" class="sidebar-header">
                 <i class="icon-desktop"></i> <span>Frontend</span>
                 <i class="fa fa-angle-right pull-right"></i>
@@ -80,7 +73,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
     </ul>
     <!--Page Sidebar Ends-->

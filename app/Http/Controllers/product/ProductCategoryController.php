@@ -21,7 +21,7 @@ class ProductCategoryController extends Controller
             'title' => ['required'],
             'parent' => ['required'],
             'url' => ['required'],
-            'image' => ['required'],
+            // 'image' => ['required'],
             'meta_title' => ['required'],
             'meta_information' => ['required'],
             'meta_keywords' => ['required'],
@@ -32,7 +32,9 @@ class ProductCategoryController extends Controller
         $data->title = $request->title;
         $data->parent = $request->parent;
         $data->url = $request->url;
-        $data->image = Storage::put('/product_category_uploads', request()->file('image'));
+        if(request()->hasFile('image')){
+            $data->image = Storage::put('/product_category_uploads', request()->file('image'));
+        }
         $data->meta_title = $request->meta_title;
         $data->meta_information = $request->meta_information;
         $data->meta_keywords = $request->meta_keywords;
@@ -54,18 +56,30 @@ class ProductCategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'title' => ['required'],
+            'parent' => ['required'],
+            'url' => ['required'],
+            'meta_title' => ['required'],
+            'meta_information' => ['required'],
+            'meta_keywords' => ['required'],
+
+        ]);
+
         $data = ProductCategory::find($id);
         $data->title = $request->title;
         $data->parent = $request->parent;
         $data->url = $request->url;
-        if ($request->hasFile('image')) {
-            if ($data->image && file_exists(public_path($data->image))) {
+
+        if ($data->image && $request->hasFile('image')) {
+            if (file_exists(public_path($data->image))) {
                 if (public_path($data->image)) {
                     unlink(public_path($data->image));
                 }
             }
             $data->image = Storage::put('/product_category_uploads', request()->file('image'));
         }
+
         $data->meta_title = $request->meta_title;
         $data->meta_information = $request->meta_information;
         $data->meta_keywords = $request->meta_keywords;

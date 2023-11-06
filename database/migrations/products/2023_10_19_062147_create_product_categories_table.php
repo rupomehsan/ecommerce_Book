@@ -28,11 +28,11 @@ return new class extends Migration
         });
 
 
-        Schema::create('product_category_product', function (Blueprint $table) {
+        Schema::create('product_product_category', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('product_id')->nullable();
             $table->bigInteger('product_category_id')->nullable();
-            
+
             $table->timestamps();
         });
     }
