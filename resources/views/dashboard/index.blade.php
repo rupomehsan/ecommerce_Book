@@ -21,10 +21,12 @@
                         <div class="col-xl-3 col-6 xs-width-100">
                             <div class="crm-top-widget card-body">
                                 <div class="d-flex">
-                                    <i class="icon-user font-primary align-self-center me-3"></i>
+                                    <i class="icon-shopping-cart font-primary align-self-center me-3"></i>
                                     <div>
-                                        <span class="mt-0">Teachers</span>
-                                        <h4 class="counter">15</h4>
+                                        <span class="mt-0">Total Products</span>
+                                        <h4 class="counter">
+                                            {{ $total_products }}
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
@@ -32,10 +34,10 @@
                         <div class="col-xl-3 col-6 xs-width-100">
                             <div class="crm-top-widget card-body">
                                 <div class="d-flex">
-                                    <i class="icon-id-badge font-secondary align-self-center me-3"></i>
+                                    <i class="icon-shopping-cart font-secondary align-self-center me-3"></i>
                                     <div>
-                                        <span class="mt-0">Students</span>
-                                        <h4 class="counter">457</h4>
+                                        <span class="mt-0">Total Product Stock</span>
+                                        <h4 class="counter"> {{ $total_stock  }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -43,10 +45,10 @@
                         <div class="col-xl-3 col-6 xs-width-100">
                             <div class="crm-top-widget card-body">
                                 <div class="d-flex">
-                                    <i class="icon-camera font-success align-self-center me-3"></i>
+                                    <i class="icon-shopping-cart font-success align-self-center me-3"></i>
                                     <div>
-                                        <span class="mt-0">Photos</span>
-                                        <h4 class="counter">37</h4>
+                                        <span class="mt-0">Total Sales</span>
+                                        <h4 class="counter">{{ $total_sold }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -54,64 +56,19 @@
                         <div class="col-xl-3 col-6 xs-width-100">
                             <div class="crm-top-widget card-body">
                                 <div class="d-flex">
-                                    <i class="icon-video-camera font-info align-self-center me-3"></i>
+                                    <i class="icon-shopping-cart font-info align-self-center me-3"></i>
                                     <div>
-                                        <span class="mt-0">Videos</span>
-                                        <h4 class="counter">16</h4>
+                                        <span class="mt-0">Present Stock</span>
+                                        <h4 class="counter">
+                                            {{ $product_in_stock }}
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card border-widgets shadow mb-4">
-                    <div class="row m-0">
-                        <div class="col-xl-3 col-6 xs-width-100">
-                            <div class="crm-top-widget card-body">
-                                <div class="d-flex">
-                                    <i class="icon-harddrives font-primary align-self-center me-3"></i>
-                                    <div>
-                                        <span class="mt-0">Blog Posts</span>
-                                        <h4 class="counter">27</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-6 xs-width-100">
-                            <div class="crm-top-widget card-body">
-                                <div class="d-flex">
-                                    <i class="icon-files font-secondary align-self-center me-3"></i>
-                                    <div>
-                                        <span class="mt-0">Notices</span>
-                                        <h4 class="counter">457</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-6 xs-width-100">
-                            <div class="crm-top-widget card-body">
-                                <div class="d-flex">
-                                    <i class="icon-zip font-success align-self-center me-3"></i>
-                                    <div>
-                                        <span class="mt-0">News</span>
-                                        <h4 class="counter">37</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-6 xs-width-100">
-                            <div class="crm-top-widget card-body">
-                                <div class="d-flex">
-                                    <i class="icon-book font-info align-self-center me-3"></i>
-                                    <div>
-                                        <span class="mt-0">Digital Books</span>
-                                        <h4 class="counter">16</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <!-- Container-fluid starts -->
         </div>
