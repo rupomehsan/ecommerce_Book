@@ -29,7 +29,8 @@
             </a>
             <ul class="sidebar-submenu">
                 <li><a href="{{ route('dashboard.user.create') }}"><i class="fa fa-angle-right"></i>Create User</a></li>
-                <li><a href="{{ route('dashboard.user.view') }}" class=""><i class="fa fa-angle-right"></i>All User</a></li>
+                <li><a href="{{ route('dashboard.user.view') }}" class=""><i class="fa fa-angle-right"></i>All User</a>
+                </li>
             </ul> --}}
         </li>
 
@@ -55,6 +56,45 @@
                     <a href="{{ route('dashboard.product_tag.view') }}" class="">
                         <i class="fa fa-angle-right"></i>
                         Tags
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="">
+            <a href="javascript:void(0)" onclick="toggle_menu()" class="sidebar-header">
+                <i class="icon-desktop"></i><span>Order</span>
+                <i class="fa fa-angle-right pull-right"></i>
+            </a>
+            <ul class="sidebar-submenu">
+                <li>
+                    <a href="{{ route('dashboard.order.all') }}" class="">
+                        <i class="fa fa-angle-right"></i>
+                        All
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('dashboard.product.view') }}?type=pending" class="">
+                        <i class="fa fa-angle-right"></i>
+                        Pending
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('dashboard.product_tag.view') }}?type=accepted" class="">
+                        <i class="fa fa-angle-right"></i>
+                        Accepted
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('dashboard.product_tag.view') }}?type=processing" class="">
+                        <i class="fa fa-angle-right"></i>
+                        Processing
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('dashboard.product_tag.view') }}?type=delivered" class="">
+                        <i class="fa fa-angle-right"></i>
+                        Delivered
                     </a>
                 </li>
             </ul>

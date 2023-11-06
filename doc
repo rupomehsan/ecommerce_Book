@@ -1,0 +1,1 @@
+"reload": "php artisan db:wipe && php artisan migrate && php artisan migrate --path=database/migrations/* && php artisan db:seed && php artisan passport:install"

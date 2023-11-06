@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\banner\BannerController;
+use App\Http\Controllers\Order\OrderController;
 use App\Http\Controllers\product\ProductCategoryController;
 use App\Http\Controllers\product\ProductController;
 use App\Http\Controllers\product\ProductTagController;
@@ -9,6 +10,9 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserRoleController;
+use App\Models\orders\OrderProduct;
+use App\Models\products\Product;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -96,6 +100,22 @@ Route::group(['prefix' => 'product'], function () {
     Route::post('/discount/{id}', [ProductController::class, 'discount_submit'])->name('dashboard.product.discount_submit');
 })->middleware('isAdmin');
 
+Route::group(['prefix' => 'order'], function () {
+    Route::get('/', [OrderController::class, 'index'])->name('dashboard.order.all');
+    Route::get('/pending',  [OrderController::class, 'create'])->name('dashboard.order.create');
+    Route::post('/store', [OrderController::class, 'store'])->name('dashboard.order.store');
+    Route::get('/edit/{id}', [OrderController::class, 'edit'])->name('dashboard.order.edit');
+    Route::post('/update/{id}', [OrderController::class, 'update'])->name('dashboard.order.update');
+    Route::get('/destory/{id}', [OrderController::class, 'destory'])->name('dashboard.order.destory');
+    Route::get('/details/{id}', [OrderController::class, 'details'])->name('dashboard.order.details');
+    Route::get('/discount/{id}', [OrderController::class, 'discount'])->name('dashboard.order.discount');
+    Route::post('/discount/{id}', [OrderController::class, 'discount_submit'])->name('dashboard.order.discount_submit');
+})->middleware('isAdmin');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('test', function () {
+    $test = 100 * 500 / 500;
+    dd($test);
+});

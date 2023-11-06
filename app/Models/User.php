@@ -19,6 +19,8 @@ class User extends Authenticatable
      */
     protected  $guarded  = [];
 
+    protected $appends = ['full_name'];
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -42,6 +44,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(UserRole::class, 'user_user_role', 'user_id', 'user_role_id', 'id', 'role_serial');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
     }
 
     // public function permissions()

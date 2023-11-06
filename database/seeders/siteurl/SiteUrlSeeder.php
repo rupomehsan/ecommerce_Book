@@ -21,22 +21,23 @@ class SiteUrlSeeder extends Seeder
         $categorys = ProductCategory::get();
 
         foreach ($categorys as $category) {
+            $existUrl = SiteUrl::where("url", $category->url)->first();
             SiteUrl::create([
-                'url' => $category->url,
+                'url' => $existUrl ? $category->url . rand(99, 999) : $category->url,
                 'url_for_table' => 'product_categories',
                 'url_for_table_id' =>  $category->id,
                 'url_redirect_to' => '',
                 'total_view' => '',
                 'total_redirect' => '',
-
             ]);
         }
 
         $products = Product::get();
 
         foreach ($products as $product) {
+            $existUrl = SiteUrl::where("url", $category->url)->first();
             SiteUrl::create([
-                'url' => $product->product_url,
+                'url' => $existUrl ? $category->url . rand(99, 999) : $category->url,
                 'url_for_table' => 'products',
                 'url_for_table_id' =>  $product->id,
                 'url_redirect_to' => '',
@@ -49,8 +50,9 @@ class SiteUrlSeeder extends Seeder
         $ProductTags = ProductTag::get();
 
         foreach ($ProductTags as $ProductTag) {
+            $existUrl = SiteUrl::where("url", $category->url)->first();
             SiteUrl::create([
-                'url' => $ProductTag->url,
+                'url' => $existUrl ? $category->url . rand(99, 999) : $category->url,
                 'url_for_table' => 'product_tags',
                 'url_for_table_id' =>  $ProductTag->id,
                 'url_redirect_to' => '',

@@ -19,7 +19,8 @@ return new class extends Migration
             $table->float('main_price')->nullable();
             $table->float('discount_percent')->nullable();
             $table->float('discount_price')->nullable();
-            
+            $table->integer('discount_flat_amount')->nullable();
+
 
             $table->tinyInteger('creator')->nullable();
             $table->string('slug',50)->nullable();
