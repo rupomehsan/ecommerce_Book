@@ -206,4 +206,8 @@ body[main-theme-layout="main-theme-layout-4"] .page-wrapper .page-main-header .m
     margin: auto;
   }
 }
+.form-group label {
+  font-size: 17px;
+  text-transform: capitalize;
+}
 /*# sourceMappingURL=./custom.css.map */
