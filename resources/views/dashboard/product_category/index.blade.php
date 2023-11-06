@@ -24,7 +24,7 @@
                             <tr>
                                 <th  style="width: 50px;">SL</th>
                                 <th  style="width: 140px;text-align: left;">title</th>
-                                <th  style="width: 140px;">parent Category</th>
+                                <th  style="width: 100px;">parent Category</th>
                                 <th  style="width: 100px;">url</th>
                                 <th  style="width: 100px;">Total Product</th>
                                 {{-- <th  style="width: 50px;">image</th> --}}
@@ -39,14 +39,14 @@
                             <tr>
                                 <td >{{$loop->index + 1}}</td>
                                 <td class="text-start" >
-                                    <b class="bn mb-2 d-inline-block">{{$item->title}}</b>
-                                    <div class="d-flex gap-2 flex-wrap">
+                                    <b class="bn">{{$item->title}}</b>
+                                    <div class="d-flex mt-2 gap-2 flex-wrap">
                                         <a href="{{route('dashboard.product_category.edit',$item->id)}}" class="text-info"> Edit </a>
                                         <a href="{{route('dashboard.product_category.details',$item->id)}}" class="text-warning"> Details </a>
                                         <a onclick="return confirm(`delete data?`)" href="{{route('dashboard.product_category.destory',$item->id)}}" class="text-danger">delete </a>
                                     </div>
                                 </td>
-                                <td>{{$item->parent}}</td>
+                                <td>{{$item->parent ?$item->parent: ''}}</td>
                                 <td >{{$item->url}}</td>
                                 <td >{{$item->products()->count()}}</td>
                                 {{-- <td>

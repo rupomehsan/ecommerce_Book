@@ -9,13 +9,13 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <!-- <label class="switch">
-                                                <input v-if="data.is_visible" type="checkbox" @change="toggle" checked="">
-                                                <input v-else type="checkbox" @change="toggle">
-                                                <span class="switch-state" style="background-color: #4c6887;"></span>
-                                            </label> -->
-                        <div class="ps-3 d-flex gap-2"><a href="#/admin/blog/category" class="btn btn-sm btn-info"> All
-                                Category </a><a href="{{ route('dashboard.product_category.create') }}"
-                                class="btn btn-sm btn-info"> Create </a></div>
+                            <input v-if="data.is_visible" type="checkbox" @change="toggle" checked="">
+                            <input v-else type="checkbox" @change="toggle">
+                            <span class="switch-state" style="background-color: #4c6887;"></span>
+                        </label> -->
+                        <div class="ps-3 d-flex gap-2">
+                            <a href="{{ route('dashboard.product.create') }}" class="btn btn-sm btn-info"> Create </a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body px-4 py-2 form_area custom_scroll">
@@ -25,7 +25,7 @@
                                 <tr>
                                     <th style="width: 50px;">Id</th>
                                     <th style="width: 50px;">Image</th>
-                                    <th style="width: 50px;">Product Name</th>
+                                    <th style="width: 200px;text-align:left;">Product Name</th>
                                     <th style="width: 50px;">Avaiability </th>
                                     <th style="width: 50px;">price</th>
                                     <th style="width: 50px;">Discount %</th>
@@ -34,7 +34,6 @@
                                     <th style="width: 50px;">Total Stock</th>
                                     <th style="width: 50px;">Total Sold</th>
                                     <th style="width: 50px;">Present stock</th>
-                                    <th style="width: 50px;">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,62 +43,66 @@
                                         <td>
                                             <img src="/{{ $item->image }}" height="40" alt="Image">
                                         </td>
-                                        <td>{{ $item->product_name }}</td>
+                                        <td class="text-start">
+                                            <b>
+                                                {{ $item->product_name }}
+                                            </b>
+                                            <div class="d-flex mt-2 gap-2 flex-wrap border-top py-1">
+                                                <a href="{{route('dashboard.product.edit',$item->id)}}" class="text-info"> Edit </a>
+                                                <a href="{{route('dashboard.product.details',$item->id)}}" class="text-warning"> Details </a>
+                                                <a href="{{route('dashboard.product.discount',$item->id)}}" class="text-primary"> Discount </a>
+                                                <a onclick="return confirm(`delete data?`)" href="{{route('dashboard.product.destory',$item->id)}}" class="text-danger">delete </a>
+                                            </div>
+                                        </td>
                                         <td>
-                                            @if ($item->stocks_sum_qty - $item->orders_sum_qty > 0)
-                                                in_stock
+                                            @if ($item->total_stock - $item->total_sold > 0)
+                                                in stock
                                             @else
                                                 not in stock
                                             @endif
                                         </td>
                                         <td>
-                                            @if ($item->discount)
+                                            <span class="text-info">
+                                                {{ $item->sales_price }}
+                                            </span>
+                                            {{-- @if ($item->discount)
                                                 {{ $item->discount->main_price }}
                                             @else
                                                 {{ $item->sales_price }}
-                                            @endif
+                                            @endif --}}
                                         </td>
                                         <td>
                                             @if ($item->discount)
-                                                {{ $item->discount->discount_percent }}
-                                            @else
-                                                {{ 0 }}
+                                                <span class="text-warning">
+                                                    {{ $item->discount->discount_percent }}
+                                                </span>
                                             @endif
                                         </td>
                                         <td>
-
-                                            @if ($item->discount)
-                                                {{ $item->discount->discount_price }}
-                                            @else
-                                                {{ $item->sales_price }}
-                                            @endif
+                                            <span class="text-warning">
+                                                @if ($item->discount)
+                                                    {{ $item->discount->discount_price }}
+                                                @endif
+                                            </span>
                                         </td>
                                         <td>
-                                            @if($item->discount)
-                                                {{ $item->sales_price - $item->discount->discount_price }}
-                                            @else
-                                                {{ $item->sales_price }}
-                                             @endif
-                                       </td>
-                                    <td>{{ $item->stocks_sum_qty }}</td>
-                                    <td>{{ $item->orders_sum_qty }}</td>
-                                    <td>{{ $item->stocks_sum_qty - $item->orders_sum_qty }}</td>
-
-
-
-                                    <td class="text-end">
-                                        <div class="d-flex justify-content-end gap-3">
-                                            <a href="{{ route('dashboard.product.edit', $item->id) }}"
-                                                class="btn btn-sm btn-outline-info"> Edit </a>
-                                            <a href="{{ route('dashboard.product.details', $item->id) }}"
-                                                class="btn btn-sm btn-outline-warning"> Details </a>
-                                            <a href="{{ route('dashboard.product.destory', $item->id) }}"
-                                                class="btn btn-sm btn-outline-danger">delete </a>
-                                        </div>
-                                    </td>
+                                            <span class="text-info">
+                                                @if($item->discount)
+                                                    {{ $item->discount->discount_price }}
+                                                @else
+                                                    {{ $item->sales_price }}
+                                                 @endif
+                                            </span>
+                                        </td>
+                                        <td>{{ $item->total_stock }}</td>
+                                        <td>{{ $item->total_sold }}</td>
+                                        <td>
+                                            <span class="badge bg-warning text-dark">
+                                                {{ $item->total_stock - $item->total_sold }}
+                                            </span>
+                                        </td>
                                     </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div>
