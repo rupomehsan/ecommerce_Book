@@ -1,1 +1,25 @@
 "reload": "php artisan db:wipe && php artisan migrate && php artisan migrate --path=database/migrations/* && php artisan db:seed && php artisan passport:install"
+১ টি অর্ডার এর বিবরণ
+শাখাঃ মোমেনশাহী মহানগর
+তারিখঃ ০৭ / ১১ / ২০২৩
+
+মোট মূল্য
+রিমুভ কার্ট
+ক্রমিক নং
+উপকরণ
+সংখ্যা
+একক মূল্য
+১
+মোদের চলার পথ ইসলাম
+৩৫ ৳
+১৪০ ট
+4
+মোট মূল্যঃ
+১৪০ ট
+ব্যাংক চার্জঃ
+৩০ ট
+কুরিয়ার চার্জঃ
+১০০ t
+সর্বমোট মূল্যঃ
+২৭০ ট
+Submit

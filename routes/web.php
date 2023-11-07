@@ -110,6 +110,7 @@ Route::group(['prefix' => 'order'], function () {
     Route::get('/details/{id}', [OrderController::class, 'details'])->name('dashboard.order.details');
     Route::get('/discount/{id}', [OrderController::class, 'discount'])->name('dashboard.order.discount');
     Route::post('/discount/{id}', [OrderController::class, 'discount_submit'])->name('dashboard.order.discount_submit');
+    Route::post('/order-status-update/{id}', [OrderController::class, 'order_status_update'])->name('dashboard.order.statusUpdate');
 })->middleware('isAdmin');
 
 Auth::routes();

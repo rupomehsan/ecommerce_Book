@@ -1,4 +1,4 @@
-<div class="page-sidebar custom-scrollbar page-sidebar-open">
+<div class="page-sidebar custom-scrollbar page-sidebar-open print-d-none">
     <!--Page Sidebar Start-->
     <script>
         function toggle_menu(){
@@ -74,25 +74,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard.product.view') }}?type=pending" class="">
+                    <a href="{{ route('dashboard.order.all') }}?type=pending" class="">
                         <i class="fa fa-angle-right"></i>
                         Pending
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard.product_tag.view') }}?type=accepted" class="">
+                    <a href="{{ route('dashboard.order.all') }}?type=accepted" class="">
                         <i class="fa fa-angle-right"></i>
                         Accepted
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard.product_tag.view') }}?type=processing" class="">
+                    <a href="{{ route('dashboard.order.all') }}?type=processing" class="">
                         <i class="fa fa-angle-right"></i>
                         Processing
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard.product_tag.view') }}?type=delivered" class="">
+                    <a href="{{ route('dashboard.order.all') }}?type=delivered" class="">
                         <i class="fa fa-angle-right"></i>
                         Delivered
                     </a>

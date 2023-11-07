@@ -11,8 +11,13 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = Order::with(['order_payment', 'user'])->get();
-        dd($orders);
+        // dd(request()->type);
+        $condition = [];
+        if (request()->has('type') && request()->input('type')) {
+            $condition['order_status'] = request()->input('type');
+        }
+        $orders = Order::with(['order_payment', 'user', 'order_shipping_address'])->where($condition)->paginate(5);
+        // dd($orders);
         return view('dashboard.order.index', compact('orders'));
     }
 
@@ -35,8 +40,9 @@ class OrderController extends Controller
 
     public function details($id)
     {
-        $details = Product::find($id);
-        return view('dashboard.product.details', compact('details'));
+        $orderDetails = Order::with(['order_products.product:id,product_name'])->find($id);
+        // dd($orderDetails);s
+        return view('dashboard.order.details', compact('orderDetails'));
     }
 
     public function edit($id)
@@ -61,10 +67,18 @@ class OrderController extends Controller
 
     public function update(Request $request, $id)
     {
-
-
         return redirect()->route('dashboard.product.details', ['id' => $data->id])
             ->with('success', 'product information updated');
+    }
+
+    public function order_status_update(Request $request, $id)
+    {
+        // dd($id,$request->all());
+        $order = Order::where('id',$id)->first();
+        $order->order_status = $request->order_status;
+        $order->update();
+        return redirect()->route('dashboard.order.all')
+            ->with('success', 'Order status updated');
     }
 
     public function destory($id)

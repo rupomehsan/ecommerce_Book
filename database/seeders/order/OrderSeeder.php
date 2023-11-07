@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\order;
 
+use App\Models\orders\OrderShippingAddress;
 use App\Models\orders\Order;
 use App\Models\orders\OrderProduct;
 use App\Models\products\Product;
@@ -35,7 +36,7 @@ class OrderSeeder extends Seeder
                 $mainPrice += $orderProduct->product_price * $orderProduct->qty;
             }
 
-            Order::create([
+            $order =  Order::create([
                 'user_id' => rand(1, 10),
                 'order_status' => ['pending', 'accepted', 'processing', 'delivered'][rand(0, 2)],
                 'total_price' => $mainPrice,
@@ -46,8 +47,19 @@ class OrderSeeder extends Seeder
                 'discount_percent' => 100 * $totalPrice / $mainPrice,
                 'payment_status' => 'pending',
                 'delivery_method' => 'home',
-                'delivery_cost' => '120',
+                'delivery_cost' => 120,
 
+            ]);
+
+            OrderShippingAddress::create([
+                "order_id" => $order->id,
+                "full_name" => fake()->name(),
+                "thana" => fake()->address(),
+                "district" => fake()->address(),
+                "phone" => fake()->phoneNumber(),
+                "house_no" => fake()->numberBetween(10,100),
+                "road_no" => fake()->numberBetween(10,100),
+                "description" => fake()->text()
             ]);
         }
     }

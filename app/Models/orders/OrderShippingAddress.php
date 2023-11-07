@@ -5,7 +5,7 @@ namespace App\Models\orders;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OderShippingAddress extends Model
+class OrderShippingAddress extends Model
 {
     use HasFactory;
 }

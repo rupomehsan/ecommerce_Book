@@ -1,5 +1,7 @@
 @extends('dashboard.layouts.dashboard')
 @section('content')
+
+
 <div class="container-fluid">
     <div style="margin-top: 100px;">
         <div class="card rounded-none">
@@ -36,28 +38,24 @@
                             @foreach ($orders as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td>{{$item->invoice_id}}</td>
-                                <td>{{$item->order_product?$item->order_product->trx_id:"N/A"}}</td>
-                                <td>{{$item->user->full_name}}</td>
-                                <td>{{$item->invoice_id}}</td>
-                                <td>{{$item->invoice_id}}</td>
-                                <td>{{$item->invoice_id}}</td>
-                                <td class="text-start">
-                                    <b>
-                                        {{ $item->product_name }}
-                                    </b>
+                                <td>
+                                    {{$item->invoice_id}}
                                     <div class="d-flex mt-2 gap-2 flex-wrap border-top py-1">
                                         <a href="{{route('dashboard.product.edit',$item->id)}}" class="text-info"> Edit
                                         </a>
-                                        <a href="{{route('dashboard.product.details',$item->id)}}" class="text-warning">
+                                        <a href="{{route('dashboard.order.details',$item->id)}}" class="text-warning">
                                             Details </a>
-                                        <a href="{{route('dashboard.product.discount',$item->id)}}"
-                                            class="text-primary"> Discount </a>
                                         <a onclick="return confirm(`delete data?`)"
                                             href="{{route('dashboard.product.destory',$item->id)}}"
                                             class="text-danger">delete </a>
                                     </div>
                                 </td>
+                                <td>{{$item->order_payment?$item->order_payment->trx_id:"N/A"}}</td>
+                                <td>{{$item->user?$item->user->full_name:"N/A"}}</td>
+                                <td>{{$item->order_shipping_address->phone}}</td>
+                                <td>{{$item->total_price}}</td>
+                                <td class="text-warning">{{$item->order_status}}</td>
+
 
                             </tr>
                             @endforeach
@@ -68,7 +66,7 @@
             <div class="card-footer py-2">
                 <nav aria-label="Page navigation example" class="">
 
-                    {{ $all_data->links() }}
+                    {{ $orders->links() }}
 
                     {{-- <ul class="pagination pagination-warning">
                         <li class="page-item">

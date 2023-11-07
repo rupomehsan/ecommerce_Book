@@ -50,7 +50,7 @@
 
 </head>
 
-<body main-theme-layout="main-theme-layout-4" class="" cz-shortcut-listen="true">
+<body main-theme-layout="main-theme-layout-4" class="print-reset" cz-shortcut-listen="true">
     @if(session()->has('success'))
         <script >
             setTimeout(() => {
@@ -73,7 +73,7 @@
             <div class="page-body-wrapper" id="page_body_wrapper">
                 <div>
                     @include('dashboard.layouts.left_sidebar')
-                    <div class="page-body">
+                    <div class="page-body print-m-0 print-reset">
                         @yield('content')
                     </div>
                 </div>
